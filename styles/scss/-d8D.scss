@@ -1,0 +1,129 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 144rem;
+}.item--1DT {
+  flex-direction: column;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  padding: 2.5rem 4.4rem 31.3rem 37.05rem;
+  width: 100%;
+  overflow: hidden;
+  align-items: center;
+  position: relative;
+  display: flex;
+
+  .settings-6Vo {
+    flex-shrink: 0;
+    margin: 0rem 0rem 4.3rem 96.95rem;
+    width: 5.6rem;
+    height: 5.7rem;
+    position: relative;
+    object-fit: contain;
+    vertical-align: top;
+  }
+  .item--Coj {
+    margin: 0rem 38.95rem 9.05rem 0rem;
+    font-size: 6rem;
+    font-weight: 600;
+    line-height: 1.2125;
+    color: #000000;
+    font-family: Inter, 'Source Sans Pro';
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .form-ui9 {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    margin: 0rem 32.55rem 9.05rem 0rem;
+    width: 70rem;
+
+    .item--qrh {
+      margin-bottom: 4.2rem;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+
+      .item--CSM {
+        font-family: NanumGothic, 'Source Sans Pro';
+        white-space: nowrap;
+        flex-shrink: 0;
+        margin: 0rem 0rem 0.2rem 1rem;
+        font-size: 3rem;
+        font-weight: 400;
+        line-height: 1.2575;
+        color: #000000;
+      }
+      .frame-11-gMX {
+        flex-shrink: 0;
+        width: 100%;
+        height: 7rem;
+        border: solid 0.1441rem #c4c4c4;
+        box-sizing: border-box;
+        background-color: #f2f8fc;
+        border-radius: 1.4407rem;
+      }
+    }
+    .item--mNy {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+
+      .item--X7F {
+        color: #000000;
+        font-family: NanumGothic, 'Source Sans Pro';
+        white-space: nowrap;
+        flex-shrink: 0;
+        margin: 0rem 0rem 0.2rem 1rem;
+        font-size: 3rem;
+        font-weight: 400;
+        line-height: 1.2575;
+      }
+      .frame-11-qNq {
+        background-color: #f2f8fc;
+        border-radius: 1.4407rem;
+        flex-shrink: 0;
+        width: 100%;
+        height: 7rem;
+        border: solid 0.1441rem #c4c4c4;
+        box-sizing: border-box;
+      }
+    }
+  }
+  .okbutton-Ag1 {
+    font-family: NanumGothic, 'Source Sans Pro';
+    border: solid 0.1441rem #c4c4c4;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    background-color: #f7f7f7;
+    border-radius: 1.4407rem;
+    width: calc(100% - 84.95rem);
+    text-align: center;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    margin: 0rem 58.8rem 0rem 26.15rem;
+    height: 7rem;
+    font-size: 3rem;
+    justify-content: center;
+    font-weight: 700;
+    line-height: 1.2575;
+    white-space: nowrap;
+  }
+}

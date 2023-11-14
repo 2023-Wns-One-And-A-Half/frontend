@@ -1,0 +1,151 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 144rem;
+}.item--rRo {
+  box-sizing: border-box;
+  padding: 2.5rem 4.4rem 21.4rem 37.05rem;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+.item--rRo .settings-xjj {
+  margin: 0rem 0rem 4rem 96.95rem;
+  width: 5.6rem;
+  height: 5.7rem;
+  position: relative;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.item--rRo .item--sLu {
+  margin: 0rem 38.35rem 9.35rem 0rem;
+  font-size: 6rem;
+  font-weight: 600;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.item--rRo .form-aWD {
+  margin: 0rem 32.55rem 9.05rem 0rem;
+  width: 70rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.item--rRo .form-aWD .item--JBK {
+  margin-bottom: 4.2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.item--rRo .form-aWD .item--JBK .item--T4D {
+  margin: 0rem 0rem 0.2rem 1rem;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.2575;
+  color: #000000;
+  font-family: NanumGothic, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.item--rRo .form-aWD .item--JBK .frame-11-mah {
+  width: 100%;
+  height: 7rem;
+  border: solid 0.1441rem #c4c4c4;
+  box-sizing: border-box;
+  background-color: #f2f8fc;
+  border-radius: 1.4407rem;
+  flex-shrink: 0;
+}
+.item--rRo .form-aWD .item--tfK {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.item--rRo .form-aWD .item--tfK .item--Swj {
+  margin: 0rem 0rem 0.2rem 1rem;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.2575;
+  color: #000000;
+  font-family: NanumGothic, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.item--rRo .form-aWD .item--tfK .frame-11-ZmT {
+  width: 100%;
+  height: 7rem;
+  border: solid 0.1441rem #c4c4c4;
+  box-sizing: border-box;
+  background-color: #f2f8fc;
+  border-radius: 1.4407rem;
+  flex-shrink: 0;
+}
+.item--rRo .okbutton-4TK {
+  margin: 0rem 58.8rem 7.4rem 26.15rem;
+  width: calc(100% - 84.95rem);
+  height: 7rem;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2575;
+  color: #000000;
+  font-family: NanumGothic, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 0.1441rem #c4c4c4;
+  box-sizing: border-box;
+  background-color: #f7f7f7;
+  border-radius: 1.4407rem;
+  flex-shrink: 0;
+}
+.item--rRo .item--fCD {
+  margin: 0rem 54.464rem 0rem 17.75rem;
+  width: calc(100% - 72.2143rem);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.item--rRo .item--fCD .item--a4H {
+  margin-right: 4.9357rem;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.item--rRo .item--fCD .item--Gho {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #0019ff;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}

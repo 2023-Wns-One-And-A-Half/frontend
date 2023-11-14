@@ -1,0 +1,23 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 200rem;
+}.item--YSV {
+  width: 200rem;
+  height: 112.5rem;
+  position: relative;
+  background-size: 100% 100%;
+  background-image: url('../assets/.png');
+}

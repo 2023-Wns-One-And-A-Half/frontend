@@ -1,0 +1,165 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 144rem;
+}.item--cuX {
+  width: 100%;
+  height: 102.4rem;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.item--cuX .item--m1j {
+  box-sizing: border-box;
+  padding: 3.538rem 0rem 0.36rem 0rem;
+  width: 144rem;
+  height: 10.7rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+}
+.item--cuX .item--m1j .eva-arrow-ios-back-fill-3E9 {
+  margin: 0rem 0rem 3.314rem 3.796rem;
+  width: 1.7705rem;
+  height: 3.4888rem;
+  object-fit: contain;
+  vertical-align: top;
+}
+.item--cuX .item--m1j .vector-4-N1X {
+  width: 144.3341rem;
+  height: 0;
+  object-fit: contain;
+  vertical-align: top;
+}
+.item--cuX .item--v33 {
+  box-sizing: border-box;
+  padding: 2.4rem 4.807rem 2.986rem 4.8rem;
+  width: 144.1rem;
+  height: 8.8rem;
+  position: absolute;
+  left: 0;
+  top: 93.6rem;
+  display: flex;
+  align-items: center;
+  background-color: #e3ebf1;
+}
+.item--cuX .item--v33 .item--yn1 {
+  margin: 0rem 111.207rem 0.014rem 0rem;
+  font-size: 2.8rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.item--cuX .item--v33 .icon-content-send24px-Gm7 {
+  margin-top: 0.5859rem;
+  width: 3.4861rem;
+  height: 2.8283rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.item--cuX .auto-group-3mzb-NJM {
+  box-sizing: border-box;
+  padding: 6.6rem 3.1rem 12rem 3.8rem;
+  width: 144rem;
+  height: 73.6rem;
+  position: absolute;
+  left: 0;
+  top: 20rem;
+}
+.item--cuX .auto-group-3mzb-NJM .rectangle-32-UMP {
+  margin-left: 88.3rem;
+  width: 48.8rem;
+  height: 12.7rem;
+  background-color: #e3ebf1;
+  border-radius: 1.5rem;
+}
+.item--cuX .auto-group-3mzb-NJM .auto-group-v5m5-D45 {
+  margin-bottom: 2rem;
+  width: 4rem;
+  height: 2.7rem;
+  position: relative;
+}
+.item--cuX .auto-group-3mzb-NJM .auto-group-v5m5-D45 .item--vjB {
+  width: 4rem;
+  height: 2.7rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 2.2rem;
+  font-weight: 300;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.item--cuX .auto-group-3mzb-NJM .auto-group-v5m5-D45 .item--SBj {
+  width: 4rem;
+  height: 2.7rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 2.2rem;
+  font-weight: 300;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.item--cuX .auto-group-3mzb-NJM .rectangle-31-ZGM {
+  margin-bottom: 5.1rem;
+  width: 48.8rem;
+  height: 6.2rem;
+  background-color: #d9d9d9;
+  border-radius: 1.5rem;
+}
+.item--cuX .auto-group-3mzb-NJM .rectangle-34-TsX {
+  margin: 0rem 0rem 6.5rem 88.3rem;
+  width: 48.8rem;
+  height: 7.1rem;
+  background-color: #e3ebf1;
+  border-radius: 1.5rem;
+}
+.item--cuX .auto-group-3mzb-NJM .rectangle-33-bTw {
+  width: 48.8rem;
+  height: 12.7rem;
+  background-color: #d9d9d9;
+  border-radius: 1.5rem;
+}
+.item--cuX .item--7x5 {
+  width: 19rem;
+  height: 4.9rem;
+  position: absolute;
+  left: 3.8rem;
+  top: 12.6rem;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.item--cuX .line-2-RSy {
+  width: 144.4001rem;
+  height: 0.1rem;
+  position: absolute;
+  left: 0;
+  top: 19.9rem;
+  background-color: #000000;
+}
