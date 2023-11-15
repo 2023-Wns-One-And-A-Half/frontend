@@ -1,6 +1,6 @@
 
 html {
-	font-size:62.5%;
+	font-size:40%;
 }
 * {
 	margin: 0;
@@ -14,9 +14,10 @@ input {
 }
 body {
   width: 144rem;
-}.item--6yP {
-  box-sizing: border-box;
-  padding: 2.5rem 4.4rem 4.3rem 31.4rem;
+}
+.signup-box {
+  padding-top: 2%;
+  padding-left: 45%;
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -25,7 +26,7 @@ body {
   flex-direction: column;
   background-color: #ffffff;
 }
-.item--6yP .settings-QUH {
+.signup-box .setting-icon {
   margin: 0rem 0rem 4rem 102.6rem;
   width: 5.6rem;
   height: 5.7rem;
@@ -34,7 +35,7 @@ body {
   vertical-align: top;
   flex-shrink: 0;
 }
-.item--6yP .item--JpZ {
+.signup-box .signup-label {
   margin: 0rem 34.5rem 6.05rem 0rem;
   font-size: 6rem;
   font-weight: 600;
@@ -44,7 +45,7 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.item--6yP .form-caM {
+.signup-box .form {
   margin: 0rem 26.9rem 5.95rem 0rem;
   width: 81.3rem;
   align-items: center;
@@ -52,7 +53,7 @@ body {
   flex-direction: column;
   flex-shrink: 0;
 }
-.item--6yP .form-caM .item--9aH {
+.signup-box .form .id-box {
   box-sizing: border-box;
   padding: 1rem 5.65rem;
   width: 100%;
@@ -60,7 +61,7 @@ body {
   flex-direction: column;
   flex-shrink: 0;
 }
-.item--6yP .form-caM .item--9aH .item--fHj {
+.signup-box .form .id-box .id-label {
   margin: 0rem 0rem 0.2rem 1rem;
   font-size: 3rem;
   font-weight: 400;
@@ -70,7 +71,9 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.item--6yP .form-caM .item--9aH .frame-11-PDj {
+.signup-box .form .id-box .id-input {
+  font-size: large;
+  padding: 10px;
   width: 100%;
   height: 7rem;
   border: solid 0.1441rem #c4c4c4;
@@ -79,7 +82,7 @@ body {
   border-radius: 1.4407rem;
   flex-shrink: 0;
 }
-.item--6yP .form-caM .auto-group-jsrh-uxm {
+.signup-box .form .group {
   box-sizing: border-box;
   padding: 3.2rem 5.65rem 0rem 5.65rem;
   width: 100%;
@@ -89,13 +92,13 @@ body {
   flex-direction: column;
   flex-shrink: 0;
 }
-.item--6yP .form-caM .auto-group-jsrh-uxm .item--QPj {
+.signup-box .form .group .pw-box {
   width: 100%;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
 }
-.item--6yP .form-caM .auto-group-jsrh-uxm .item--QPj .item--8qX {
+.signup-box .form .group .pw-box .pw-label {
   margin: 0rem 0rem 0.2rem 1rem;
   font-size: 3rem;
   font-weight: 400;
@@ -105,7 +108,9 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.item--6yP .form-caM .auto-group-jsrh-uxm .item--QPj .frame-11-FfF {
+.signup-box .form .group .pw-box .pw-input {
+  font-size: large;
+  padding: 10px;
   width: 100%;
   height: 7rem;
   border: solid 0.1441rem #c4c4c4;
@@ -114,13 +119,13 @@ body {
   border-radius: 1.4407rem;
   flex-shrink: 0;
 }
-.item--6yP .form-caM .auto-group-jsrh-uxm .item--NUy {
+.signup-box .form .group .area-box {
   width: 100%;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
 }
-.item--6yP .form-caM .auto-group-jsrh-uxm .item--NUy .item--8j3 {
+.signup-box .form .group .area-box .area-label {
   margin: 0rem 0rem 0.2rem 1rem;
   font-size: 3rem;
   font-weight: 400;
@@ -130,7 +135,9 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.item--6yP .form-caM .auto-group-jsrh-uxm .item--NUy .frame-11-rQ9 {
+.signup-box .form .group .area-box .select-area {
+  font-size: large;
+  padding: 10px;
   width: 100%;
   height: 7rem;
   border: solid 0.1441rem #c4c4c4;
@@ -139,13 +146,13 @@ body {
   border-radius: 1.4407rem;
   flex-shrink: 0;
 }
-.item--6yP .form-caM .auto-group-jsrh-uxm .item--zmF {
+.signup-box .form .group .nickname-box {
   width: 100%;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
 }
-.item--6yP .form-caM .auto-group-jsrh-uxm .item--zmF .item--xTB {
+.signup-box .form .group .nickname-box .nickname-label {
   margin: 0rem 0rem 0.2rem 1rem;
   font-size: 3rem;
   font-weight: 400;
@@ -155,7 +162,9 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.item--6yP .form-caM .auto-group-jsrh-uxm .item--zmF .frame-11-roT {
+.signup-box .form .group .nickname-box .nickname-input {
+  font-size: large;
+  padding: 10px;
   width: 100%;
   height: 7rem;
   border: solid 0.1441rem #c4c4c4;
@@ -164,13 +173,13 @@ body {
   border-radius: 1.4407rem;
   flex-shrink: 0;
 }
-.item--6yP .form-caM .auto-group-jsrh-uxm .item--nh7 {
+.signup-box .form .group .img-box {
   width: 100%;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
 }
-.item--6yP .form-caM .auto-group-jsrh-uxm .item--nh7 .item--9nZ {
+.signup-box .form .group .img-box .img-label {
   margin: 0rem 0rem 0.2rem 1rem;
   font-size: 3rem;
   font-weight: 400;
@@ -180,16 +189,16 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.item--6yP .form-caM .auto-group-jsrh-uxm .item--nh7 .frame-11-q9b {
+.signup-box .form .group .img-box .file-box {
   box-sizing: border-box;
-  padding: 1.8rem 2.95rem 1.4rem 50.25rem;
+  padding: 10px;
   width: 100%;
   height: 7rem;
   border: solid 0.1441rem #c4c4c4;
   border-radius: 1.4407rem;
   flex-shrink: 0;
 }
-.item--6yP .form-caM .auto-group-jsrh-uxm .item--nh7 .frame-11-q9b .frame-32-Ahf {
+.signup-box .form .group .img-box .file-box .file-input {
   box-sizing: border-box;
   padding: 0.7rem 2.5rem 0rem 2.5rem;
   width: 100%;
@@ -205,7 +214,7 @@ body {
   background-color: #a7c7df;
   border-radius: 1.441rem;
 }
-.item--6yP .okbutton-CuF {
+.signup-box .okButton {
   margin: 0rem 58.8rem 0rem 31.8rem;
   width: calc(100% - 90.6rem);
   height: 7rem;
@@ -224,4 +233,7 @@ body {
   background-color: #f7f7f7;
   border-radius: 1.4407rem;
   flex-shrink: 0;
+}
+.okButton:hover{
+  background-color: #d6d6d6;
 }

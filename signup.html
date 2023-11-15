@@ -12,39 +12,42 @@
   <link rel="stylesheet" href="./styles/signup.css"/>
 </head>
 <body>
-<div class="item--6yP">
-  <img class="settings-QUH" src="./assets/settings-Ejj.png"/>
-  <p class="item--JpZ">회원가입</p>
-  <div class="form-caM">
-    <div class="item--9aH">
-      <p class="item--fHj">아이디</p>
-      <div class="frame-11-PDj">
-      </div>
+<div class="signup-box">
+  <img class="setting-icon" src="./assets/settings-Ejj.png"/>
+  <p class="signup-label">회원가입</p>
+  <div class="form">
+    <div class="id-box">
+      <p class="id-label">아이디</p>
+      <input type="text" class="id-input">
     </div>
-    <div class="auto-group-jsrh-uxm">
-      <div class="item--QPj">
-        <p class="item--8qX">비밀번호</p>
-        <div class="frame-11-FfF">
-        </div>
+    <div class="group">
+      <div class="pw-box">
+        <p class="pw-label">비밀번호</p>
+        <input type="password" class="pw-input">
       </div>
-      <div class="item--NUy">
-        <p class="item--8j3">활동지역</p>
-        <div class="frame-11-rQ9">
-        </div>
+      <div class="area-box">
+        <p class="area-label">활동지역</p>
+        <select name ="area" id="area" class="select-area">
+          <option value="none" selected disabled>지역 선택</option>
+          <option value="서울">서울</option>
+          <option value="인천">인천</option>
+          <option value="대전">대전</option>
+          <option value="광주">광주</option>
+          <option value="대구">대구</option>
+          <option value="부산">부산</option>
+          <option value="울산">울산</option>
+        </select>
       </div>
-      <div class="item--zmF">
-        <p class="item--xTB">닉네임</p>
-        <div class="frame-11-roT">
-        </div>
+      <div class="nickname-box">
+        <p class="nickname-label">닉네임</p>
+        <input type="text" class="nickname-input">
       </div>
-      <div class="item--nh7">
-        <p class="item--9nZ">프로필 사진</p>
-        <div class="frame-11-q9b">
-          <div class="frame-32-Ahf">업로드하기</div>
-        </div>
+      <div class="img-box">
+        <p class="img-label">프로필 사진</p>
+          <input type="file"class="file-box" accept=".jpg,.png,.jpeg">
       </div>
     </div>
   </div>
-  <div class="okbutton-CuF">OK</div>
+  <div class="okButton">OK</div>
 </div>
 </body>

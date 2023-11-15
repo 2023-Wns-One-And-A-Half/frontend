@@ -1,6 +1,6 @@
 
 html {
-	font-size:62.5%;
+	font-size:45.5%;
 }
 * {
 	margin: 0;
@@ -14,9 +14,10 @@ input {
 }
 body {
   width: 144rem;
-}.item--rRo {
-  box-sizing: border-box;
-  padding: 2.5rem 4.4rem 21.4rem 37.05rem;
+}
+.login-box {
+  padding-top: 2%;
+  padding-left: 35%;
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -25,7 +26,7 @@ body {
   flex-direction: column;
   background-color: #ffffff;
 }
-.item--rRo .settings-xjj {
+.login-box .setting-icon {
   margin: 0rem 0rem 4rem 96.95rem;
   width: 5.6rem;
   height: 5.7rem;
@@ -34,7 +35,7 @@ body {
   vertical-align: top;
   flex-shrink: 0;
 }
-.item--rRo .item--sLu {
+.login-box .login-label {
   margin: 0rem 38.35rem 9.35rem 0rem;
   font-size: 6rem;
   font-weight: 600;
@@ -44,7 +45,7 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.item--rRo .form-aWD {
+.login-box .form {
   margin: 0rem 32.55rem 9.05rem 0rem;
   width: 70rem;
   align-items: center;
@@ -52,14 +53,14 @@ body {
   flex-direction: column;
   flex-shrink: 0;
 }
-.item--rRo .form-aWD .item--JBK {
+.login-box .form .id-box {
   margin-bottom: 4.2rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
 }
-.item--rRo .form-aWD .item--JBK .item--T4D {
+.login-box .form .id-box .id-label {
   margin: 0rem 0rem 0.2rem 1rem;
   font-size: 3rem;
   font-weight: 400;
@@ -69,7 +70,9 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.item--rRo .form-aWD .item--JBK .frame-11-mah {
+.login-box .form .id-box .id-input {
+  padding: 10px;
+  font-size: large;
   width: 100%;
   height: 7rem;
   border: solid 0.1441rem #c4c4c4;
@@ -78,13 +81,13 @@ body {
   border-radius: 1.4407rem;
   flex-shrink: 0;
 }
-.item--rRo .form-aWD .item--tfK {
+.login-box .form .pw-box {
   width: 100%;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
 }
-.item--rRo .form-aWD .item--tfK .item--Swj {
+.login-box .form .pw-box .pw-label {
   margin: 0rem 0rem 0.2rem 1rem;
   font-size: 3rem;
   font-weight: 400;
@@ -94,7 +97,9 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.item--rRo .form-aWD .item--tfK .frame-11-ZmT {
+.login-box .form .pw-box .pw-input {
+  padding: 10px;
+  font-size: large;
   width: 100%;
   height: 7rem;
   border: solid 0.1441rem #c4c4c4;
@@ -103,7 +108,7 @@ body {
   border-radius: 1.4407rem;
   flex-shrink: 0;
 }
-.item--rRo .okbutton-4TK {
+.login-box .okButton {
   margin: 0rem 58.8rem 7.4rem 26.15rem;
   width: calc(100% - 84.95rem);
   height: 7rem;
@@ -123,14 +128,16 @@ body {
   border-radius: 1.4407rem;
   flex-shrink: 0;
 }
-.item--rRo .item--fCD {
-  margin: 0rem 54.464rem 0rem 17.75rem;
+.okButton:hover{
+  background-color: #d6d6d6;
+}
+.login-box .suggest-label {
   width: calc(100% - 72.2143rem);
   display: flex;
   align-items: center;
   flex-shrink: 0;
 }
-.item--rRo .item--fCD .item--a4H {
+.login-box .suggest-label .question {
   margin-right: 4.9357rem;
   font-size: 2rem;
   font-weight: 400;
@@ -140,7 +147,7 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.item--rRo .item--fCD .item--Gho {
+.login-box .suggest-label .goto-signup {
   font-size: 2rem;
   font-weight: 400;
   line-height: 1.2125;
@@ -148,4 +155,8 @@ body {
   font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
+}
+
+.goto-signup:hover{
+  text-decoration: underline;
 }

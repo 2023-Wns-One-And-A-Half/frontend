@@ -13,24 +13,24 @@
 </head>
 <body>
 <div class="item--V1K">
-  <div class="nav-ZQV">
-    <div class="item--4Gh">
-      <div class="auto-group-cyvs-RmT">
-        <div class="rectangle-3-fQu">
+  <div class="nav-bar">
+    <div class="profile-box">
+      <div class="profile-inner">
+        <div class="profile-img">
         </div>
-        <div class="auto-group-bgap-KkM">
+        <div class="profile-info">
           <div class="auto-group-mebu-NTj">
-            <p class="item--5Hb">닉네임</p>
-            <img class="icon-social-notificationsnone24px-rhf" src="./assets/icon-social-notificationsnone24px.png"/>
+            <p class="nickname">닉네임</p>
+            <img class="notification-icon" src="./assets/icon-social-notificationsnone24px.png"/>
           </div>
-          <p class="item--vSd">활동지역 : 대전</p>
+          <p class="userarea">활동지역 : 대전</p>
         </div>
       </div>
-      <div class="line-1-xu7">
+      <div class="line">
       </div>
-      <div class="item--U6m">
+      <div class="keyword-box">
         <p class="item--8BK">관심 키워드</p>
-        <div class="auto-group-4vw9-YVw">
+        <div class="keyword-list">
           <div class="rectangle-4-Tcu">
           </div>
           <div class="rectangle-5-jqK">
@@ -39,34 +39,39 @@
           </div>
         </div>
         <div class="auto-group-1cks-WUh">
-          <div class="rectangle-7-EvV">
-          </div>
-          <div class="rectangle-8-kP3">
-          </div>
         </div>
-        <div class="auto-group-magb-VLd">
-          <p class="item--ocD">관심 키워드 추가</p>
-          <img class="icon-add-fill-7cu" src="./assets/icon-add-fill-Kcd.png"/>
+        <div class="addButton-background">
+          <p class="keyword-addButton">관심 키워드 추가</p>
+          <img class="add-icon" src="./assets/icon-add-fill-Kcd.png"/>
         </div>
       </div>
     </div>
-    <p class="item--yQD">마이페이지</p>
-    <p class="item--u2y">로그인 / 회원가입</p>
-    <p class="item--QEd">상품 등록</p>
+    <p class="goto-mypage">마이페이지</p>
+    <div class="login-or-signup">
+      <span>로그인 </span>/
+      <span>회원가입</span>
+    </div>
+    <p class="goto-upload">상품 등록</p>
   </div>
-  <div class="frame-1-GGq">
-    <div class="item--zid">
-      <div class="item--KF7">
-        <p class="item--RJ9">지역 선택</p>
-        <img class="vector-hFf" src="./assets/vector.png"/>
-      </div>
-      <div class="item--1n9">검색어</div>
-      <div class="price-RL5">
-        <div class="min-Y9o">최소금액</div>
-        <p class="item--QC1">~</p>
-        <div class="max-5Z3">최대금액</div>
-      </div>
-      <img class="search-icon-YBj" src="./assets/search-icon.png"/>
+  <div class="view-box">
+    <div class="search-bar">
+        <select name ="area" id="area" class="select-area">
+          <option value="all" selected>지역 선택</option>
+          <option value="서울">서울</option>
+          <option value="인천">인천</option>
+          <option value="대전">대전</option>
+          <option value="광주">광주</option>
+          <option value="대구">대구</option>
+          <option value="부산">부산</option>
+          <option value="울산">울산</option>
+        </select>
+        <input class="search-word" placeholder="검색어를 입력해주세요">
+        <div class="price">
+          <input type="number" class="min" placeholder="0" step="1000">
+          <p class="item--QC1">~</p>
+          <input type="number" class="max" placeholder="1000" step="1000">
+        </div>
+        <img class="search-icon" src="./assets/search-icon.png"/>
     </div>
     <div class="item--RFX">
       <div class="items-8vd">
@@ -139,25 +144,10 @@
               <p class="item-49900--EhP">49.900 원</p>
             </div>
           </div>
-          <div class="item--xdP">
-            <div class="rectangle-13-v4R">
-            </div>
-            <div class="auto-group-951v-GPB">
-              <p class="item--RG5">청소기</p>
-              <p class="item-49900--9C5">49.900 원</p>
-            </div>
-          </div>
         </div>
         <div class="item--gC1">
-          <div class="rectangle-13-DBw">
-          </div>
-          <div class="auto-group-hgj7-ZFo">
-            <p class="item--7YD">청소기</p>
-            <p class="item-49900--dmT">49.900 원</p>
-          </div>
         </div>
       </div>
-      <img class="auto-group-2poz-Zf7" src="./assets/auto-group-2poz.png"/>
     </div>
   </div>
 </div>
