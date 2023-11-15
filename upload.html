@@ -1,73 +1,76 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <title>상품 등록</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=NanumGothic%3A400%2C700"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
-  <link rel="stylesheet" href="./styles/upload.css"/>
-</head>
-<body>
-<div class="item--KyB">
-  <div class="item--4Qy">
-    <img class="eva-arrow-ios-back-fill-n65" src="./assets/eva-arrow-ios-back-fill-GUq.png"/>
-    <img class="vector-4-JaD" src="REPLACE_IMAGE:8:563"/>
-  </div>
-  <div class="content-kSD">
-    <div class="main-GQZ">
-      <div class="auto-group-hvdh-R2Z">
-        <div class="auto-group-h4jv-m6R">
-          <div class="item--qc5">
-            <p class="item--Zny">상품 이름</p>
-            <div class="frame-11-rGH">
-            </div>
-          </div>
-          <div class="item--PX7">
-            <p class="item--Y97">가격</p>
-            <div class="frame-11-rfb">
-            </div>
-          </div>
-          <div class="item--PvR">
-            <p class="item--MMT">활동 지역</p>
-            <img class="frame-11-5HT" src="./assets/frame-11.png"/>
-          </div>
-        </div>
-        <div class="item--CN5">
-          <p class="item--92R">상품 사진</p>
-          <div class="frame-11-G73">
-            <div class="frame-32-Ay7">업로드하기</div>
-          </div>
-          <div class="frame-33-Sfj">
-            <div class="auto-group-ggpv-xPB">
-              <div class="rectangle-25-tGq">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>상품 등록</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
+    <link rel="stylesheet" href="./styles/upload.css"/>
+  </head>
+  <body>
+    <div class="upload-box">
+      <div class="back-box">
+        <img class="back-icon" src="./assets/eva-arrow-ios-back-fill-GUq.png"/>
+      <div class="upload-inner">
+        <div class="upload-innerBox">
+          <div class="upper-box">
+            <div class="upper-leftBox">
+              <div class="name-box">
+                <p class="name-label">상품 이름</p>
+                <input type="text" class="name-input">
               </div>
-              <div class="rectangle-27-RnZ">
+              <div class="price-box">
+                <p class="price-label">가격</p>
+                <input type="number" step="1000" min="0" class="price-input">
+              </div>
+              <div class="area-box">
+                <p class="item--MMT">활동 지역</p>
+                <select name ="area" id="area" class="area-input">
+                  <option value="all" selected disabled>지역 선택</option>
+                  <option value="서울">서울</option>
+                  <option value="인천">인천</option>
+                  <option value="대전">대전</option>
+                  <option value="광주">광주</option>
+                  <option value="대구">대구</option>
+                  <option value="부산">부산</option>
+                  <option value="울산">울산</option>
+                </select>
               </div>
             </div>
-            <div class="auto-group-2dud-kZw">
-              <div class="rectangle-26-W3K">
-              </div>
-              <div class="rectangle-28-44q">
-              </div>
-            </div>
-            <div class="auto-group-rnxd-oo7">
-              <div class="rectangle-29-A7s">
-              </div>
-              <div class="rectangle-30-VR3">
+            <div class="img-box">
+              <p class="img-label">상품 사진</p>
+              <input type="file"class="file-box" accept=".jpg,.png,.jpeg" multiple>
+              <div class="images-box">
+                <div class="auto-group-ggpv-xPB">
+                  <div class="rectangle-25-tGq">
+                  </div>
+                  <div class="rectangle-27-RnZ">
+                  </div>
+                </div>
+                <div class="auto-group-2dud-kZw">
+                  <div class="rectangle-26-W3K">
+                  </div>
+                  <div class="rectangle-28-44q">
+                  </div>
+                </div>
+                <div class="auto-group-rnxd-oo7">
+                  <div class="rectangle-29-A7s">
+                  </div>
+                  <div class="rectangle-30-VR3">
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+          <div class="lower-box">
+            <div class="comment-box">상품 설명</div>
+            <textarea class="comment-input" placeholder="내용을 입력하세요."></textarea>
+          </div>
+          <div class="uploadButton">업로드</div>
         </div>
       </div>
-      <div class="item--SbB">
-        <div class="item--kbs">상품 설명</div>
-        <div class="item--4Mf">내용을 입력하세요.</div>
-      </div>
-      <div class="item--WUZ">업로드</div>
     </div>
-  </div>
-</div>
-</body>
+  </body>
+</html>
