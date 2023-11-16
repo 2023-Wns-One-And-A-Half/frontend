@@ -16,10 +16,11 @@ input {
   overflow: hidden;
   position: relative;
   display: flex;
-  align-items: flex-start;
   background-color: #e3ebf1;
 }
 .nav-bar {
+  position: sticky;
+  padding-bottom: auto;
   margin-right: 10rem;
   padding: 3.2rem ;
   background-color: #c3d6e3;
