@@ -11,10 +11,14 @@ ul, li {
 }
 input {
 	border: none;
+  background-color: #e3ebf1;
+  width: 90%;
+  font-size: large;
 }
-body {
-  width: 144rem;
-}.item--K6y {
+input:focus{
+  outline: none;
+}
+.buyerPage-box {
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -22,15 +26,16 @@ body {
   align-items: center;
   background-color: #ffffff;
 }
-.item--K6y .auto-group-bhlo-ef3 {
+.buyerPage-box .left-box {
   box-sizing: border-box;
-  padding: 7.9rem 6.204rem 10rem 5.256rem;
-  height: 102.4rem;
+  justify-content: center;
   display: flex;
+  flex: 1 0 auto;
   align-items: center;
+  text-align: center;
   flex-shrink: 0;
 }
-.item--K6y .auto-group-bhlo-ef3 .icon-hardware-keyboardarrowright24px-MZT {
+.buyerPage-box .left-box .prevImg-icon {
   margin: 0rem 2.856rem 27.8rem 0rem;
   width: 2.3871rem;
   height: 4.0509rem;
@@ -38,7 +43,7 @@ body {
   vertical-align: top;
   flex-shrink: 0;
 }
-.item--K6y .auto-group-bhlo-ef3 .auto-group-wmat-sXo {
+.buyerPage-box .left-box .post-box {
   margin-right: 2.6912rem;
   width: 62.5rem;
   height: 100%;
@@ -47,13 +52,13 @@ body {
   flex-direction: column;
   flex-shrink: 0;
 }
-.item--K6y .auto-group-bhlo-ef3 .auto-group-wmat-sXo .rectangle-16-d1B {
+.buyerPage-box .left-box .post-box .post-img {
   width: 100%;
   height: 56.7rem;
   background-color: #bfbfbf;
   flex-shrink: 0;
 }
-.item--K6y .auto-group-bhlo-ef3 .auto-group-wmat-sXo .auto-group-abrk-aSD {
+.buyerPage-box .left-box .post-box .postContent-box {
   box-sizing: border-box;
   padding-top: 3.4rem;
   width: 100%;
@@ -61,35 +66,35 @@ body {
   flex-direction: column;
   flex-shrink: 0;
 }
-.item--K6y .auto-group-bhlo-ef3 .auto-group-wmat-sXo .auto-group-abrk-aSD .auto-group-bs67-VZB {
+.buyerPage-box .left-box .post-box .postContent-box .seller-info {
   margin-bottom: 4.8rem;
   height: 8.5rem;
   display: flex;
   align-items: center;
   flex-shrink: 0;
 }
-.item--K6y .auto-group-bhlo-ef3 .auto-group-wmat-sXo .auto-group-abrk-aSD .auto-group-bs67-VZB .item--SUR {
+.buyerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile {
   margin-right: 13.8743rem;
   height: 100%;
   display: flex;
   align-items: center;
   flex-shrink: 0;
 }
-.item--K6y .auto-group-bhlo-ef3 .auto-group-wmat-sXo .auto-group-abrk-aSD .auto-group-bs67-VZB .item--SUR .rectangle-18-9td {
+.buyerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .seller-img {
   margin-right: 1.6rem;
   width: 8.4rem;
   height: 8.5rem;
   background-color: #000000;
   flex-shrink: 0;
 }
-.item--K6y .auto-group-bhlo-ef3 .auto-group-wmat-sXo .auto-group-abrk-aSD .auto-group-bs67-VZB .item--SUR .auto-group-23bh-JFj {
+.buyerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .info-box {
   margin: 0.2rem 0rem 0.5rem 0rem;
   height: calc(100% - 0.7rem);
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
 }
-.item--K6y .auto-group-bhlo-ef3 .auto-group-wmat-sXo .auto-group-abrk-aSD .auto-group-bs67-VZB .item--SUR .auto-group-23bh-JFj .item--E9P {
+.buyerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .info-box .seller-label {
   margin-bottom: 1.1rem;
   font-size: 2.4rem;
   font-weight: 400;
@@ -99,7 +104,7 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.item--K6y .auto-group-bhlo-ef3 .auto-group-wmat-sXo .auto-group-abrk-aSD .auto-group-bs67-VZB .item--SUR .auto-group-23bh-JFj .item--kdX {
+.buyerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .info-box .seller-name {
   font-size: 3rem;
   font-weight: 600;
   line-height: 1.2125;
@@ -108,7 +113,7 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.item--K6y .auto-group-bhlo-ef3 .auto-group-wmat-sXo .auto-group-abrk-aSD .auto-group-bs67-VZB .icon-action-favoriteborder24px-rRf {
+.buyerPage-box .left-box .post-box .postContent-box .seller-info .heart-icon {
   margin-top: 0.8rem;
   width: 3.7514rem;
   height: 3.3088rem;
@@ -116,7 +121,7 @@ body {
   vertical-align: top;
   flex-shrink: 0;
 }
-.item--K6y .auto-group-bhlo-ef3 .auto-group-wmat-sXo .auto-group-abrk-aSD .auto-group-bs67-VZB .auto-group-smty-Ax9 {
+.buyerPage-box .left-box .post-box .postContent-box .seller-info .act-box {
   box-sizing: border-box;
   padding: 1.7rem 0rem 1.6rem 2.374rem;
   height: 100%;
@@ -124,7 +129,7 @@ body {
   align-items: center;
   flex-shrink: 0;
 }
-.item--K6y .auto-group-bhlo-ef3 .auto-group-wmat-sXo .auto-group-abrk-aSD .auto-group-bs67-VZB .auto-group-smty-Ax9 .item--6L1 {
+.buyerPage-box .left-box .post-box .postContent-box .seller-info .act-box .chatButton {
   margin-right: 1.6rem;
   width: 11.7rem;
   height: 100%;
@@ -141,7 +146,7 @@ body {
   border-radius: 1rem;
   flex-shrink: 0;
 }
-.item--K6y .auto-group-bhlo-ef3 .auto-group-wmat-sXo .auto-group-abrk-aSD .auto-group-bs67-VZB .auto-group-smty-Ax9 .item--xd7 {
+.buyerPage-box .left-box .post-box .postContent-box .seller-info .act-box .buyButton {
   width: 13.3rem;
   height: 100%;
   font-size: 2.2rem;
@@ -157,14 +162,23 @@ body {
   border-radius: 1rem;
   flex-shrink: 0;
 }
-.item--K6y .auto-group-bhlo-ef3 .auto-group-wmat-sXo .auto-group-abrk-aSD .auto-group-whgf-wzq {
+
+.chatButton:hover{
+  background-color: #6199b3 !important;
+}
+
+.buyButton:hover{
+  background-color: #6199b3 !important;
+}
+
+.buyerPage-box .left-box .post-box .postContent-box .title-box {
   margin-bottom: 1.8rem;
   height: 3.9rem;
   display: flex;
   align-items: center;
   flex-shrink: 0;
 }
-.item--K6y .auto-group-bhlo-ef3 .auto-group-wmat-sXo .auto-group-abrk-aSD .auto-group-whgf-wzq .item--J4h {
+.buyerPage-box .left-box .post-box .postContent-box .title-box .title {
   margin-right: 4.5rem;
   font-size: 3.2rem;
   font-weight: 700;
@@ -174,7 +188,7 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.item--K6y .auto-group-bhlo-ef3 .auto-group-wmat-sXo .auto-group-abrk-aSD .auto-group-whgf-wzq .item-49900--1zh {
+.buyerPage-box .left-box .post-box .postContent-box .title-box .price {
   margin: 0rem 18.5rem 0.2rem 0rem;
   font-size: 2.2rem;
   font-weight: 400;
@@ -184,14 +198,14 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.item--K6y .auto-group-bhlo-ef3 .auto-group-wmat-sXo .auto-group-abrk-aSD .auto-group-whgf-wzq .item--KEh {
+.buyerPage-box .left-box .post-box .postContent-box .title-box .post-info {
   margin: 0.8rem 0rem 0.6rem 0rem;
   height: calc(100% - 1.4rem);
   display: flex;
   align-items: center;
   flex-shrink: 0;
 }
-.item--K6y .auto-group-bhlo-ef3 .auto-group-wmat-sXo .auto-group-abrk-aSD .auto-group-whgf-wzq .item--KEh .item-5-EMf {
+.buyerPage-box .left-box .post-box .postContent-box .title-box .post-info .view-count {
   margin-right: 2.5rem;
   font-size: 2rem;
   font-weight: 400;
@@ -201,7 +215,7 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.item--K6y .auto-group-bhlo-ef3 .auto-group-wmat-sXo .auto-group-abrk-aSD .auto-group-whgf-wzq .item--KEh .item-2-YNM {
+.buyerPage-box .left-box .post-box .postContent-box .title-box .post-info .heart-count {
   font-size: 2rem;
   font-weight: 400;
   line-height: 1.2125;
@@ -210,7 +224,7 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.item--K6y .auto-group-bhlo-ef3 .auto-group-wmat-sXo .auto-group-abrk-aSD .item--sfX {
+.buyerPage-box .left-box .post-box .postContent-box .post-content {
   max-width: 42.9rem;
   font-size: 2.2rem;
   font-weight: 400;
@@ -219,7 +233,7 @@ body {
   font-family: Inter, 'Source Sans Pro';
   flex-shrink: 0;
 }
-.item--K6y .auto-group-bhlo-ef3 .icon-hardware-keyboardarrowright24px-g7B {
+.buyerPage-box .left-box .nextImg-icon {
   margin-bottom: 27.5rem;
   width: 2.3047rem;
   height: 3.9113rem;
@@ -227,8 +241,7 @@ body {
   vertical-align: top;
   flex-shrink: 0;
 }
-.item--K6y .item--CLR {
-  width: 59.8rem;
+.buyerPage-box .right-box {
   height: 102.4rem;
   align-items: center;
   display: flex;
@@ -236,7 +249,7 @@ body {
   background-color: #c4d6e4;
   flex-shrink: 0;
 }
-.item--K6y .item--CLR .auto-group-fxcf-XNh {
+.buyerPage-box .right-box .comment-box {
   box-sizing: border-box;
   padding: 2.9rem 2.5rem 53rem 3.2rem;
   width: 100%;
@@ -244,7 +257,7 @@ body {
   flex-direction: column;
   flex-shrink: 0;
 }
-.item--K6y .item--CLR .auto-group-fxcf-XNh .item-2-369 {
+.buyerPage-box .right-box .comment-box .comment-count {
   margin-bottom: 6.1rem;
   font-size: 2.4rem;
   font-weight: 400;
@@ -254,7 +267,7 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.item--K6y .item--CLR .auto-group-fxcf-XNh .item--jUm {
+.buyerPage-box .right-box .comment-box .item--jUm {
   margin: 0rem 0rem 3rem 1rem;
   width: calc(100% - 1rem);
   height: 12.8rem;
@@ -262,19 +275,19 @@ body {
   align-items: flex-start;
   flex-shrink: 0;
 }
-.item--K6y .item--CLR .auto-group-fxcf-XNh .item--jUm .auto-group-qdeb-rpH {
+.buyerPage-box .right-box .comment-box .item--jUm .user-box {
   margin-right: 2.4rem;
   width: 8.4rem;
   height: 100%;
   flex-shrink: 0;
 }
-.item--K6y .item--CLR .auto-group-fxcf-XNh .item--jUm .auto-group-qdeb-rpH .rectangle-18-1SH {
+.buyerPage-box .right-box .comment-box .item--jUm .user-box .user-img {
   margin-bottom: 1.3rem;
   width: 100%;
   height: 8.5rem;
   background-color: #fdfdfd;
 }
-.item--K6y .item--CLR .auto-group-fxcf-XNh .item--jUm .auto-group-qdeb-rpH .item--xcR {
+.buyerPage-box .right-box .comment-box .item--jUm .user-box .user-name {
   margin-left: 0.9rem;
   font-size: 2.4rem;
   font-weight: 400;
@@ -283,7 +296,7 @@ body {
   font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
 }
-.item--K6y .item--CLR .auto-group-fxcf-XNh .item--jUm .auto-group-va9q-5h3 {
+.buyerPage-box .right-box .comment-box .item--jUm .userComment-box {
   box-sizing: border-box;
   padding: 2rem 1.5rem 0.8rem 2.1rem;
   width: 42.3rem;
@@ -293,7 +306,7 @@ body {
   background-color: #ffffff;
   flex-shrink: 0;
 }
-.item--K6y .item--CLR .auto-group-fxcf-XNh .item--jUm .auto-group-va9q-5h3 .item--Bzy {
+.buyerPage-box .right-box .comment-box .item--jUm .userComment-box .userComment {
   margin: 0rem 22rem 4.4rem 0rem;
   font-size: 2.4rem;
   font-weight: 400;
@@ -303,7 +316,7 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.item--K6y .item--CLR .auto-group-fxcf-XNh .item--jUm .auto-group-va9q-5h3 .item-2023-11-11-16-39-6MF {
+.buyerPage-box .right-box .comment-box .item--jUm .userComment-box .userComment-time {
   margin-left: 21.6rem;
   font-size: 2rem;
   font-weight: 400;
@@ -313,86 +326,19 @@ body {
   white-space: nowrap;
   flex-shrink: 0;
 }
-.item--K6y .item--CLR .auto-group-fxcf-XNh .item--NpZ {
-  margin-left: 1rem;
-  width: calc(100% - 1rem);
-  height: 12.8rem;
-  display: flex;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.item--K6y .item--CLR .auto-group-fxcf-XNh .item--NpZ .auto-group-wd3r-Guw {
-  margin-right: 2.4rem;
-  width: 8.4rem;
-  height: 100%;
-  flex-shrink: 0;
-}
-.item--K6y .item--CLR .auto-group-fxcf-XNh .item--NpZ .auto-group-wd3r-Guw .rectangle-18-zb3 {
-  margin-bottom: 1.3rem;
-  width: 100%;
-  height: 8.5rem;
-  background-color: #fdfdfd;
-}
-.item--K6y .item--CLR .auto-group-fxcf-XNh .item--NpZ .auto-group-wd3r-Guw .item--Luo {
-  margin-left: 0.9rem;
-  font-size: 2.4rem;
-  font-weight: 400;
-  line-height: 1.2125;
-  color: #000000;
-  font-family: Inter, 'Source Sans Pro';
-  white-space: nowrap;
-}
-.item--K6y .item--CLR .auto-group-fxcf-XNh .item--NpZ .auto-group-ymvk-H4M {
+.buyerPage-box .right-box .send-box {
   box-sizing: border-box;
-  padding: 2rem 1.5rem 0.8rem 2.1rem;
-  width: 42.3rem;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff;
-  flex-shrink: 0;
-}
-.item--K6y .item--CLR .auto-group-fxcf-XNh .item--NpZ .auto-group-ymvk-H4M .item--Cx1 {
-  margin: 0rem 26rem 4.4rem 0rem;
-  font-size: 2.4rem;
-  font-weight: 400;
-  line-height: 1.2125;
-  color: #000000;
-  font-family: Inter, 'Source Sans Pro';
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.item--K6y .item--CLR .auto-group-fxcf-XNh .item--NpZ .auto-group-ymvk-H4M .item-2023-11-12-19-41-KFw {
-  margin-left: 21.6rem;
-  font-size: 2rem;
-  font-weight: 400;
-  line-height: 1.2125;
-  color: #000000;
-  font-family: Inter, 'Source Sans Pro';
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.item--K6y .item--CLR .item--CqX {
-  box-sizing: border-box;
-  padding: 2.4rem 1.579rem 2.986rem 4.2rem;
+  padding: 2.4rem 0rem 2.986rem 2.2rem;
   width: 100%;
+  margin-top: auto;
   display: flex;
   align-items: center;
   background-color: #e3ebf1;
   flex-shrink: 0;
 }
-.item--K6y .item--CLR .item--CqX .item--XN1 {
-  margin: 0rem 32.579rem 0.014rem 0rem;
-  font-size: 2.8rem;
-  font-weight: 400;
-  line-height: 1.2125;
-  color: #000000;
-  font-family: Inter, 'Source Sans Pro';
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.item--K6y .item--CLR .item--CqX .icon-content-send24px-pc1 {
+.buyerPage-box .right-box .send-box .send-icon {
   margin-top: 0.5859rem;
+  margin-left: 10px;
   width: 3.2429rem;
   height: 2.8283rem;
   object-fit: contain;
