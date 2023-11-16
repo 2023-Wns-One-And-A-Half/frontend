@@ -1,0 +1,347 @@
+
+html {
+	font-size:45%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+  background-color: #e3ebf1;
+  width: 90%;
+  font-size: large;
+}
+input:focus{
+  outline: none;
+}
+.buyerPage-box {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+}
+.buyerPage-box .left-box {
+  box-sizing: border-box;
+  justify-content: center;
+  display: flex;
+  flex: 1 0 auto;
+  align-items: center;
+  text-align: center;
+  flex-shrink: 0;
+}
+.buyerPage-box .left-box .prevImg-icon {
+  margin: 0rem 2.856rem 27.8rem 0rem;
+  width: 2.3871rem;
+  height: 4.0509rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.buyerPage-box .left-box .post-box {
+  margin-right: 2.6912rem;
+  width: 62.5rem;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.buyerPage-box .left-box .post-box .post-img {
+  width: 100%;
+  height: 56.7rem;
+  background-color: #bfbfbf;
+  flex-shrink: 0;
+}
+.buyerPage-box .left-box .post-box .postContent-box {
+  box-sizing: border-box;
+  padding-top: 3.4rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.buyerPage-box .left-box .post-box .postContent-box .seller-info {
+  margin-bottom: 4.8rem;
+  height: 8.5rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.buyerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile {
+  margin-right: 13.8743rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.buyerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .seller-img {
+  margin-right: 1.6rem;
+  width: 8.4rem;
+  height: 8.5rem;
+  background-color: #000000;
+  flex-shrink: 0;
+}
+.buyerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .info-box {
+  margin: 0.2rem 0rem 0.5rem 0rem;
+  height: calc(100% - 0.7rem);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.buyerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .info-box .seller-label {
+  margin-bottom: 1.1rem;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.buyerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .info-box .seller-name {
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.buyerPage-box .left-box .post-box .postContent-box .seller-info .heart-icon {
+  margin-top: 0.8rem;
+  width: 3.7514rem;
+  height: 3.3088rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.buyerPage-box .left-box .post-box .postContent-box .seller-info .act-box {
+  box-sizing: border-box;
+  padding: 1.7rem 0rem 1.6rem 2.374rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.buyerPage-box .left-box .post-box .postContent-box .seller-info .act-box .chatButton {
+  margin-right: 1.6rem;
+  width: 11.7rem;
+  height: 100%;
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #a7c7df;
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+.buyerPage-box .left-box .post-box .postContent-box .seller-info .act-box .buyButton {
+  width: 13.3rem;
+  height: 100%;
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #a7c7df;
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+
+.chatButton:hover{
+  background-color: #6199b3 !important;
+}
+
+.buyButton:hover{
+  background-color: #6199b3 !important;
+}
+
+.buyerPage-box .left-box .post-box .postContent-box .title-box {
+  margin-bottom: 1.8rem;
+  height: 3.9rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.buyerPage-box .left-box .post-box .postContent-box .title-box .title {
+  margin-right: 4.5rem;
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.buyerPage-box .left-box .post-box .postContent-box .title-box .price {
+  margin: 0rem 18.5rem 0.2rem 0rem;
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.buyerPage-box .left-box .post-box .postContent-box .title-box .post-info {
+  margin: 0.8rem 0rem 0.6rem 0rem;
+  height: calc(100% - 1.4rem);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.buyerPage-box .left-box .post-box .postContent-box .title-box .post-info .view-count {
+  margin-right: 2.5rem;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.buyerPage-box .left-box .post-box .postContent-box .title-box .post-info .heart-count {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.buyerPage-box .left-box .post-box .postContent-box .post-content {
+  max-width: 42.9rem;
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  flex-shrink: 0;
+}
+.buyerPage-box .left-box .nextImg-icon {
+  margin-bottom: 27.5rem;
+  width: 2.3047rem;
+  height: 3.9113rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}
+.buyerPage-box .right-box {
+  height: 102.4rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #c4d6e4;
+  flex-shrink: 0;
+}
+.buyerPage-box .right-box .comment-box {
+  box-sizing: border-box;
+  padding: 2.9rem 2.5rem 53rem 3.2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.buyerPage-box .right-box .comment-box .comment-count {
+  margin-bottom: 6.1rem;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.buyerPage-box .right-box .comment-box .item--jUm {
+  margin: 0rem 0rem 3rem 1rem;
+  width: calc(100% - 1rem);
+  height: 12.8rem;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.buyerPage-box .right-box .comment-box .item--jUm .user-box {
+  margin-right: 2.4rem;
+  width: 8.4rem;
+  height: 100%;
+  flex-shrink: 0;
+}
+.buyerPage-box .right-box .comment-box .item--jUm .user-box .user-img {
+  margin-bottom: 1.3rem;
+  width: 100%;
+  height: 8.5rem;
+  background-color: #fdfdfd;
+}
+.buyerPage-box .right-box .comment-box .item--jUm .user-box .user-name {
+  margin-left: 0.9rem;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.buyerPage-box .right-box .comment-box .item--jUm .userComment-box {
+  box-sizing: border-box;
+  padding: 2rem 1.5rem 0.8rem 2.1rem;
+  width: 42.3rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  flex-shrink: 0;
+}
+.buyerPage-box .right-box .comment-box .item--jUm .userComment-box .userComment {
+  margin: 0rem 22rem 4.4rem 0rem;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.buyerPage-box .right-box .comment-box .item--jUm .userComment-box .userComment-time {
+  margin-left: 21.6rem;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.buyerPage-box .right-box .send-box {
+  box-sizing: border-box;
+  padding: 2.4rem 0rem 2.986rem 2.2rem;
+  width: 100%;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  background-color: #e3ebf1;
+  flex-shrink: 0;
+}
+.buyerPage-box .right-box .send-box .send-icon {
+  margin-top: 0.5859rem;
+  margin-left: 10px;
+  width: 3.2429rem;
+  height: 2.8283rem;
+  object-fit: contain;
+  vertical-align: top;
+  flex-shrink: 0;
+}

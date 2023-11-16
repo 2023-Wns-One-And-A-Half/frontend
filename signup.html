@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>회원가입</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=NanumGothic%3A400%2C700"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A600"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C600%2C700"/>
+    <link rel="stylesheet" href="./styles/signup.css"/>
+  </head>
+  <body>
+    <div class="signup-box">
+      <img class="setting-icon" src="./assets/settings-Ejj.png"/>
+      <p class="signup-label">회원가입</p>
+      <div class="form">
+        <div class="id-box">
+          <p class="id-label">아이디</p>
+          <input type="text" class="id-input">
+        </div>
+        <div class="group">
+          <div class="pw-box">
+            <p class="pw-label">비밀번호</p>
+            <input type="password" class="pw-input">
+          </div>
+          <div class="area-box">
+            <p class="area-label">활동지역</p>
+            <select name ="area" id="area" class="select-area">
+              <option value="none" selected disabled>지역 선택</option>
+              <option value="서울">서울</option>
+              <option value="인천">인천</option>
+              <option value="대전">대전</option>
+              <option value="광주">광주</option>
+              <option value="대구">대구</option>
+              <option value="부산">부산</option>
+              <option value="울산">울산</option>
+            </select>
+          </div>
+          <div class="nickname-box">
+            <p class="nickname-label">닉네임</p>
+            <input type="text" class="nickname-input">
+          </div>
+          <div class="img-box">
+            <p class="img-label">프로필 사진</p>
+              <input type="file" class="file-box" accept=".jpg,.png,.jpeg">
+          </div>
+        </div>
+      </div>
+      <div class="okButton">OK</div>
+    </div>
+  </body>
+</html>
