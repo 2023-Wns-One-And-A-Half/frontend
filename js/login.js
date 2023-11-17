@@ -37,7 +37,6 @@ function postInfo(id, pw){
     },
     body: formData,
     })
-    .then(response => response.json())
     .then(data => {
         if(data.status == "NOT_FOUND" || data.status == "UNAUTHORIZED"){
             alert(data.message);

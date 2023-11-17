@@ -63,7 +63,6 @@ function postInfo(id, pw, area, nickname, img){
     },
     body: formData,
     })
-    .then(response => response.json())
     .then(data => {
         console.log(data);
         alert("회원가입 되었습니다. 다시 로그인 해주세요");

@@ -4,7 +4,7 @@ let chatButton = document.getElementsByClassName("chatButton")[0];
 let buyButton = document.getElementsByClassName("buyButton")[0];
 
 chatButton.addEventListener("click", function(){
-    window.open('./chat.html');
+    window.open('./chat.html', '_self');
 })
 //채팅 페이지로 이동
 

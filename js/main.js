@@ -31,7 +31,6 @@ function getInfo(){
 fetch(url+"", {
   method: 'GET',
 })
-  .then(response => response.json())
   .then(data => {
     console.log(data);
   })
@@ -59,7 +58,6 @@ function postInfo(){
     },
     body: formData,
     })
-    .then(response => response.json())
     .then(data => {
         console.log(data);
     })
