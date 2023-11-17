@@ -39,7 +39,13 @@ function postInfo(id, pw){
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data);
+        if(data.status == "NOT_FOUND" || data.status == "UNAUTHORIZED"){
+            alert(data.message);
+        }else{
+            console.log(data);
+            alert("로그인 되었습니다.");
+            window.open('./main.html', '_self');
+        }
     })
     .catch(error => {
         console.error('Error:', error);

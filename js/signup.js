@@ -66,8 +66,8 @@ function postInfo(id, pw, area, nickname, img){
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        alert(data.message);
-        
+        alert("회원가입 되었습니다. 다시 로그인 해주세요");
+        window.open('./main.html', '_self');
     })
     .catch(error => {
         console.error('Error:', error);
