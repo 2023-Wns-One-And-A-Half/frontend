@@ -58,6 +58,7 @@ function postInfo(id, pw, area, nickname, img){
 
     fetch(url+"/members", {
     method: 'POST',
+    credentials : 'include',
     headers: {
         //'Content-Type': 'multipart/form-data',
     },

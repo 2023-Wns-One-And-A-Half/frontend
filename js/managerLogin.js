@@ -18,24 +18,28 @@ okButton.addEventListener("click", function(){
 })
 
 function postInfo(id, pw){
-    let formData = new FormData();
-    formData.append("username", id);
-    formData.append("password", pw);
+    const data = {
+        "username":id,
+        "password":pw,
+    }
 
     fetch(url+"/admin/auth/login", {
     method: 'POST',
+    credentials : 'include',
     headers: {
         'Content-Type': 'application/json',
     },
-    body: formData,
-    })
+    body: JSON.stringify(data),
+    }).then(response => response.json())
     .then(data => {
-        if(data.status == "NOT_FOUND"){
-            alert(data.message);
-        }else{
-            console.log(data);
+            if(data.status == "NOT_FOUND" || data.status == "UNAUTHORIZED"){
+                alert(data.message);
+            }else{
+            localStorage.setItem("jsessionid", data.jsessionid);
             alert("로그인 되었습니다.");
+            window.open('./main.html', '_self');
         }
+        
     })
     .catch(error => {
         console.error('Error:', error);

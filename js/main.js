@@ -24,25 +24,32 @@ uploadButton.addEventListener("click", function(){
 })
 
 
-
-/* api get
-
 function getInfo(){
-fetch(url+"", {
-  method: 'GET',
-})
-  .then(data => {
-    console.log(data);
+  let cookie = localStorage.getItem("jsessionid");
+  console.log(cookie);
+
+  fetch(url+"/members/my", {
+    method: 'GET',
+    credentials : 'include',
+    headers: {
+      'Content-Type': 'application/json',
+      'JSESSIONID' : cookie,
+    },
   })
-  .catch(error => {
-    console.error('Error:', error);
-  });
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
 }
-*/
+
+getInfo();
 
 
 /* api post
 
+FormData() 상품등록, 회원가입
 function postInfo(){
     let formData = new FormData();
     formData.append("username", id);
@@ -60,6 +67,33 @@ function postInfo(){
     })
     .then(data => {
         console.log(data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+JSON 그 외
+function postInfo(id, pw){
+    const data = {
+        "username":id,
+        "password":pw,
+    }
+
+    fetch(url+"/members/login", {
+    method: 'POST',
+    withCredentials: true,
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+    })
+    .then(data => {
+        if(data.status == "NOT_FOUND"){
+            alert(data.message);
+        }else{
+            console.log(data);
+        }
     })
     .catch(error => {
         console.error('Error:', error);
