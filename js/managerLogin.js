@@ -32,12 +32,12 @@ function postInfo(id, pw){
     body: JSON.stringify(data),
     }).then(response => response.json())
     .then(data => {
-            if(data.status == "NOT_FOUND" || data.status == "UNAUTHORIZED"){
-                alert(data.message);
-            }else{
-            localStorage.setItem("jsessionid", data.jsessionid);
-            alert("로그인 되었습니다.");
-            window.open('./main.html', '_self');
+        if(data.status == "NOT_FOUND" || data.status == "UNAUTHORIZED"){
+            alert(data.message);
+        }else{
+        localStorage.setItem("jsessionid", data.jsessionid);
+        alert("로그인 되었습니다.");
+        window.open('./main.html', '_self');
         }
         
     })

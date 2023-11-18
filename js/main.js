@@ -8,7 +8,10 @@ let loginButton = document.getElementById("loginButton");
 let logoutButton = document.getElementById("logoutButton");
 let signupButton = document.getElementById("signupButton");
 let cookie = localStorage.getItem("jsessionid");
+
 let uploadButton = document.getElementsByClassName("goto-upload")[0];
+let addKeywordButton = document.getElementsByClassName("keyword-addButton")[0];
+let addKeywordBack = document.getElementsByClassName("addButton-background")[0];
 
 let username = document.getElementsByClassName("nickname")[0];
 let userarea = document.getElementsByClassName("userarea")[0];
@@ -25,7 +28,8 @@ if(cookie == null){
     logout.style.display = 'block';
 }
 
-//페이지 이동
+
+/* 페이지 이동 */
 mypageButton.addEventListener("click", function(){
     window.open('./userPage.html', '_self');
 })
@@ -50,6 +54,7 @@ uploadButton.addEventListener("click", function(){
 })
 
 
+/* 서버로부터 로그인 정보 불러오기 */
 function getInfo(){
   fetch(url+"/members/my", {
     method: 'GET',
@@ -102,42 +107,78 @@ function getInfo(){
     });
 }
 
+
+/* 새로고침/창 띄울 때마다 정보 가져옴 */
 getInfo();
 
+
+/* 메인페이지에 로그인 유저 정보 띄우기 */
 function viewInfo(nickname, activityArea, profileURL){
-    username.innerHTML = nickname;
-    userarea.innerHTML = "활동지역 : "+activityArea;
-    userimg.innerHTML = "<img id=\"profile-img\" src=\""+profileURL+"\"/>";
+    if(localStorage.getItem("user")==null){
+        username.innerHTML = "admin";
+    }else{
+        username.innerHTML = nickname;
+        userarea.innerHTML = "활동지역 : "+activityArea;
+        userimg.innerHTML = "<img id=\"profile-img\" src=\""+profileURL+"\"/>";
+        addKeywordBack.style.display = 'block';
+    }
 }
 
 
-/* api post
+/* 키워드 추가 */
+addKeywordButton.addEventListener("click", function(){
+    let keyword = prompt("추가할 키워드를 입력해주세요");
+    if(keyword == null){
+        alert("키워드 추가가 취소되었습니다.");
+    }else{
+        while(keyword.startsWith(" ")){
+            keyword = keyword.substring(1);
+        }
 
-FormData() 상품등록, 회원가입
-function postInfo(){
-    let formData = new FormData();
-    formData.append("username", id);
-    formData.append("password", pw);
-    formData.append("activityArea", area);
-    formData.append("nickname", nickname);
-    formData.append("profileImage", img);
+        while(keyword.endsWith(" ")){
+            keyword = keyword.substring(0, keyword.length-1);
+        }
+        
+        if(keyword == ""){
+            alert("키워드가 입력되지 않았습니다.");
+        }else{
+            keyword = keyword.replace(/(^ *)|( *$)/g, "").replace(/ +/g, "_");
+            console.log(keyword);
+            postKeyword(keyword);
+        }
+    }
+})
+ 
 
-    fetch(url+"", {
+/* 서버에 추가할 키워드 보내기 */
+function postKeyword(keyword){
+    const data = {
+        "content": keyword,
+    }
+
+    fetch(url+"/keywords",{
     method: 'POST',
+    credentials : 'include',
     headers: {
         'Content-Type': 'application/json',
+        'JSESSIONID' : cookie,
     },
-    body: formData,
-    })
+    body: JSON.stringify(data),
+    }).then(response => response.json())
     .then(data => {
-        console.log(data);
+        if(data.status == "CONFLICT"){
+            alert(data.message);
+        }else{
+            console.log(data);
+        }
     })
     .catch(error => {
         console.error('Error:', error);
     });
 }
 
-JSON 그 외
+
+/* JSON 그 외
 function postInfo(id, pw){
     const data = {
         "username":id,
@@ -146,7 +187,7 @@ function postInfo(id, pw){
 
     fetch(url+"/members/login", {
     method: 'POST',
-    withCredentials: true,
+    credentials : 'include',
     headers: {
         'Content-Type': 'application/json',
     },
