@@ -30,6 +30,7 @@ input {
   box-sizing: border-box;
   padding: 2rem 1.1rem 1.8rem 1.3rem;
   width: 34.5rem;
+  height: 50rem;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -123,11 +124,12 @@ input {
 }
 .profile-box .keyword-box .keyword-list {
   margin-bottom: 1.2rem;
+  height: 20rem;
   display: flex;
-  align-items: center;
+  flex-wrap: wrap; /* 추가: 넘칠 경우 다음 줄로 넘어가도록 설정 */
   flex-shrink: 0;
 }
-.profile-box .keyword-box .keyword-list .rectangle-4-Tcu {
+.profile-box .keyword-box .keyword-list .keyword {
   margin-right: 1.3rem;
   width: 8.6rem;
   height: 3.1rem;
@@ -135,59 +137,23 @@ input {
   border-radius: 1rem;
   flex-shrink: 0;
 }
-.profile-box .keyword-box .keyword-list .rectangle-5-jqK {
-  margin-right: 1.5rem;
-  width: 8.6rem;
-  height: 3.1rem;
-  background-color: #d9d9d9;
-  border-radius: 1rem;
-  flex-shrink: 0;
-}
-.profile-box .keyword-box .keyword-list .rectangle-6-P9B {
-  width: 8.6rem;
-  height: 3.1rem;
-  background-color: #d9d9d9;
-  border-radius: 1rem;
-  flex-shrink: 0;
-}
-.profile-box .keyword-box .auto-group-1cks-WUh {
-  margin: 0rem 11.8rem 14.2rem 0rem;
-  width: calc(100% - 11.8rem);
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-.profile-box .keyword-box .auto-group-1cks-WUh {
-  margin-right: 1.3rem;
-  width: 8.6rem;
-  height: 3.1rem;
-  background-color: #d9d9d9;
-  border-radius: 1rem;
-  flex-shrink: 0;
-}
-.profile-box .keyword-box .auto-group-1cks-WUh {
-  width: 8.6rem;
-  height: 3.1rem;
-  background-color: #d9d9d9;
-  border-radius: 1rem;
-  flex-shrink: 0;
-}
+
 .addButton-background:hover{
   background-color: #c6d6e5 !important;
 }
 .profile-box .keyword-box .addButton-background {
   margin-left: 14rem;
   box-sizing: border-box;
-  padding: 0.7rem 1.1rem 0.4rem 1.8rem;
+  padding: 0.5rem 1rem 0.5rem 1.5rem;
   width: calc(100% - 14rem);
-  display: flex;
+  display : none;
   align-items: center;
   background-color: #a7c6df;
   border-radius: 1rem;
   flex-shrink: 0;
 }
 .profile-box .keyword-box .addButton-background .keyword-addButton {
-  margin-right: 1.8rem;
+  margin-right: 0.5rem;
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.2125;
