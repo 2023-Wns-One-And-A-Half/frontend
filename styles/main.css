@@ -45,11 +45,19 @@ input {
   flex-shrink: 0;
 }
 .profile-box .profile-inner .profile-img {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
   margin-right: 2.9rem;
   width: 12.6rem;
   height: 12.2rem;
-  background-color: #ebebeb;
+  background-color: rgb(213, 213, 213);
   flex-shrink: 0;
+}
+#profile-img{
+  margin-top: 20%;
+  max-width: 120px;
+  max-height: 180px;
 }
 .profile-box .profile-inner .profile-info {
   margin: 2rem 0rem 1.9rem 0rem;
@@ -64,9 +72,8 @@ input {
   align-items: center;
 }
 .profile-box .profile-inner .profile-info .auto-group-mebu-NTj .nickname {
-  margin-right: 3.3414rem;
   font-size: 2.4rem;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.2125;
   color: #000000;
   font-family: Inter, 'Source Sans Pro';
@@ -74,7 +81,8 @@ input {
   flex-shrink: 0;
 }
 .profile-box .profile-inner .profile-info .auto-group-mebu-NTj .notification-icon {
-  margin-bottom: 0.2rem;
+  margin-top: 3px;
+  margin-right: 10px;
   width: 1.5173rem;
   height: 1.95rem;
   object-fit: contain;
