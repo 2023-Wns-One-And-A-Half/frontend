@@ -43,10 +43,24 @@ uploadButton.addEventListener("click", function () {
     let area = document.getElementById("area").value;
     let description = document.getElementById("product-description").value;
     let imageInput = document.getElementById("product-images");
+    
     let productImages = imageInput.files;
     console.log(name, price, area, description, productImages);
-    postInfo(name, price, area, description, productImages);
+
+    if (check(name, price)) {
+        postInfo(name, price, area, description, productImages);
+    }
 });
+
+function check(name, price){
+    // 상품 제목과 가격이 비어있을 경우 경고 팝업 표시
+    if(name.trim() == "" || price.trim == "" ){
+        alert("상품 제목과 가격을 작성해주세요.");
+        return false;
+    }else{
+        return true;
+    }
+}
 
 function postInfo(name, price, area, description, productImages){
     let formData = new FormData();
@@ -54,11 +68,17 @@ function postInfo(name, price, area, description, productImages){
     //formData.append("area", area);
     formData.append("description", description);
     formData.append("price", price);
-    for (let i = 0; i < productImages.length; i++) {
-        formData.append("productImages", productImages[i]);
+    
+    // productImages가 비어있을 경우 기본 초기 사진 추가
+    if (productImages.length === 0) {
+        let defaultImageFile = new File(["defaultProductImg.png"], "defaultProductImg.png", { type: "image/png" });
+        formData.append("productImages", defaultImageFile);
+    } else {
+        for (let i = 0; i < productImages.length; i++) {
+            formData.append("productImages", productImages[i]);
+        }
     }
-    console.log(formData);
-
+    
     fetch(url+"/products", {
     method: 'POST',
     headers: {
