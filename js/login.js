@@ -44,6 +44,7 @@ function postInfo(id, pw){
                 alert(data.message);
             }else{
             localStorage.setItem("jsessionid", data.jsessionid);
+            localStorage.setItem("user", id);
             alert("로그인 되었습니다.");
             window.open('./main.html', '_self');
         }
