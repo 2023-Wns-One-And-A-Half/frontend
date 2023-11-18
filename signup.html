@@ -18,24 +18,24 @@
       <div class="form">
         <div class="id-box">
           <p class="id-label">아이디</p>
-          <input type="text" class="id-input">
+          <input type="text" oninput="handleOnInput(this)" class="id-input" placeholder="영문, 숫자로 8자 이상">
         </div>
         <div class="group">
           <div class="pw-box">
             <p class="pw-label">비밀번호</p>
-            <input type="password" class="pw-input">
+            <input type="password" class="pw-input" placeholder="영문, 숫자로 8자 이상">
           </div>
           <div class="area-box">
             <p class="area-label">활동지역</p>
             <select name ="area" id="area" class="select-area">
-              <option value="none" selected disabled>지역 선택</option>
-              <option value="서울">서울</option>
-              <option value="인천">인천</option>
-              <option value="대전">대전</option>
-              <option value="광주">광주</option>
-              <option value="대구">대구</option>
-              <option value="부산">부산</option>
-              <option value="울산">울산</option>
+              <option value="NONE" selected disabled>지역 선택</option>
+              <option value="SEOUL">서울</option>
+              <option value="INCHEON">인천</option>
+              <option value="DAEJEON">대전</option>
+              <option value="GWANGJU">광주</option>
+              <option value="DAEGU">대구</option>
+              <option value="BUSAN">부산</option>
+              <option value="ULSAN">울산</option>
             </select>
           </div>
           <div class="nickname-box">
@@ -51,4 +51,5 @@
       <div class="okButton">OK</div>
     </div>
   </body>
+  <script src="./js/signup.js"></script>
 </html>
