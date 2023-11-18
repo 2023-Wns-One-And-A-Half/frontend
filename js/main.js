@@ -12,6 +12,7 @@ let uploadButton = document.getElementsByClassName("goto-upload")[0];
 
 let username = document.getElementsByClassName("nickname")[0];
 let userarea = document.getElementsByClassName("userarea")[0];
+let userimg = document.getElementsByClassName("profile-img")[0];
 
 if(cookie == null){
     console.log("로그아웃 상태");
@@ -60,23 +61,53 @@ function getInfo(){
   }).then(response => response.json())
     .then(data => {
         let profileURL = 'https://d1npdfz46uvcun.cloudfront.net/'+data.profileImageName;
-        viewInfo(data.nickname, data.activityArea, profileURL)
+        let activityArea = "";
+        switch(data.activityArea){
+            case "SEOUL":
+                activityArea = "서울";
+                break;
+            case "INCHEON":
+                activityArea = "인천";
+                break;
+            case "DAEJEON":
+                activityArea = "대전";
+                break;
+            case "GWANGJU":
+                activityArea = "광주";
+                break;
+            case "DAEGU":
+                activityArea = "대구";
+                break;
+            case "BUSAN":
+                activityArea = "부산";
+                break;
+            case "ULSAN":
+                activityArea = "울산";
+                break;
+            default:
+                activityArea = "미정";
+        }
         console.log(data.id);
         console.log(data.nickname);
-        console.log(data.profileImageName);
+        console.log(profileURL);
         console.log(data.activityArea);
         console.log(data.black);
+
+        if(cookie!=null){
+            viewInfo(data.nickname, activityArea, profileURL)
+        }
     })
     .catch(error => {
         console.error('Error:', error);
     });
 }
 
-//getInfo();
+getInfo();
 
 function viewInfo(nickname, activityArea, profileURL){
     username.innerHTML = nickname;
-    userarea.innerHTML = "활동지역 : "+activityArea
+    userarea.innerHTML = "활동지역 : "+activityArea;
+    userimg.innerHTML = "<img id=\"profile-img\" src=\""+profileURL+"\"/>";
 }
 
 
