@@ -364,7 +364,7 @@ function makeProductSet(product){
     productImg.classList.add('product-img');
     // 만약 이미지가 있다면, 첫 번째 이미지를 설정
     if (product.productImageNames && product.productImageNames.length > 0) {
-        let imageURL = `url(${product.productImageNames[0]})`;
+        let imageURL = 'https://d1npdfz46uvcun.cloudfront.net/'+product.productImageNames[0];
         productImg.style.backgroundImage = imageURL;
     }
     productSet.appendChild(productImg);
