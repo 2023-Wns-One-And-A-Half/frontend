@@ -180,11 +180,11 @@ function getInterest(){
 getInterest();
 
 function viewInterest(interests){
-    let keywordProductsBox = document.querySelector('.keyword-products');
-    keywordProductsBox.innerHTML = '';
+    let interestsProductsBox = document.querySelector('.interests-products');
+    interestsProductsBox.innerHTML = '';
     interests.forEach(product => {
         let productSet = makeProductSet(product);
-        keywordProductsBox.appendChild(productSet);
+        interestsProductsBox.appendChild(productSet);
     });
 }
 

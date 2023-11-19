@@ -230,7 +230,7 @@ body {
   flex-direction: column;
   flex-shrink: 0;
 }
-.all-history-box .keyword-history-box {
+.all-history-box .interests-history-box {
   box-sizing: border-box;
   padding-bottom: 2.7774rem;
   width: 100%;
@@ -240,7 +240,7 @@ body {
   background-color: #e3ebf1;
   flex-shrink: 0;
 }
-.all-history-box .keyword-history-box .auto-group-4lxk-RbF {
+.all-history-box .interests-history-box .auto-group-4lxk-RbF {
   margin-bottom: 3.5341rem;
   box-sizing: border-box;
   padding: 1.571rem 2.6rem 1.418rem 2.6rem;
@@ -254,7 +254,7 @@ body {
   background-color: #c4d6e4;
   flex-shrink: 0;
 }
-.all-history-box .keyword-history-box .keyword-products {
+.all-history-box .interests-history-box .interests-products {
   margin: 0rem 0rem 0rem 3rem;
   width: calc(100% - 3.7rem);
   height: 20rem;
