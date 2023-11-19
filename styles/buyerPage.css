@@ -56,7 +56,16 @@ input:focus{
   height: 56.7rem;
   background-color: #bfbfbf;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
+.buyerPage-box .left-box .post-box .post-img .productimg{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
 .buyerPage-box .left-box .post-box .postContent-box {
   box-sizing: border-box;
   padding-top: 3.4rem;
@@ -82,8 +91,16 @@ input:focus{
   margin-right: 1.6rem;
   width: 8.4rem;
   height: 8.5rem;
-  background-color: #000000;
+  background-color: #ffffff;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+.buyerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .seller-img .sellerimg{
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
 }
 .buyerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .info-box {
   margin: 0.2rem 0rem 0.5rem 0rem;
@@ -254,9 +271,11 @@ input:focus{
   box-sizing: border-box;
   padding: 2.9rem 2.5rem 53rem 3.2rem;
   width: 100%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  overflow-y: scroll;
 }
 .buyerPage-box .right-box .comment-box .comment-count {
   margin-bottom: 6.1rem;
@@ -287,10 +306,17 @@ input:focus{
   width: 100%;
   height: 8.5rem;
   background-color: #fdfdfd;
+  display: flex;
+  align-items: center;
+}
+.buyerPage-box .right-box .comment-box .item--jUm .user-box .user-img .userimg{
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
 }
 .buyerPage-box .right-box .comment-box .item--jUm .user-box .user-name {
-  margin-left: 0.9rem;
-  font-size: 2.4rem;
+  font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.2125;
   color: #000000;
@@ -301,7 +327,6 @@ input:focus{
   box-sizing: border-box;
   padding: 2rem 1.5rem 0.8rem 2.1rem;
   width: 42.3rem;
-  align-items: center;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
@@ -338,7 +363,7 @@ input:focus{
   flex-shrink: 0;
 }
 .buyerPage-box .right-box .send-box .send-icon {
-  margin-top: 0.5859rem;
+  margin-top: 0.5858rem;
   margin-left: 10px;
   width: 3.2429rem;
   height: 2.8283rem;
