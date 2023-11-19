@@ -71,7 +71,7 @@ function postInfo(name, price, area, description, productImages){
     
     // productImages가 비어있을 경우 기본 초기 사진 추가
     if (productImages.length === 0) {
-        let defaultImageFile = new File(["defaultProductImg.png"], "defaultProductImg.png", { type: "image/png" });
+        let defaultImageFile = new File(["defaultProductImg.png"], "./assets/defaultProductImg.png", { type: "image/png" });
         formData.append("productImages", defaultImageFile);
     } else {
         for (let i = 0; i < productImages.length; i++) {
@@ -81,6 +81,7 @@ function postInfo(name, price, area, description, productImages){
     
     fetch(url+"/products", {
     method: 'POST',
+    credentials: 'include',
     headers: {
         //'Content-Type': 'multipart/form-data',
         'JSESSIONID' : cookie,
