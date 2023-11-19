@@ -318,3 +318,110 @@ input:focus{
   vertical-align: top;
   flex-shrink: 0;
 }
+
+.popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 40%;
+  min-width: 330px;
+  margin-left: -20%;
+  height: 350px;
+  margin-top: -280px;
+  z-index: 1000;
+  border: solid 2px #a7c7df;
+  background-color: #ffffff;
+  border-radius: 5px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.popuptitle{
+  padding-right: 5px;
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 2.5;
+  font-family: Inter, 'Source Sans Pro';
+}
+
+.popuptitleLabel{
+  padding-right: calc(100% - 45rem);
+  font-size: 2rem;
+  font-weight: 200;
+  line-height: 2.5;
+  font-family: Inter, 'Source Sans Pro';
+}
+
+.closeButton{
+  margin-left: auto;
+  width: 20px;
+  height: 20px;
+  background-color: #a7c7df;
+  border: solid 1px ;
+}
+
+.line{
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  height: 0.1rem;
+  background-color: #89c593;
+}
+
+.buyerList{
+  height: 300px;
+  overflow: scroll;
+}
+
+.buyer{
+  margin: 20px;
+}
+
+.buyerName{
+  padding: 5px;
+  font-size: 2.4rem;
+  font-weight: 400;
+  font-family: Inter, 'Source Sans Pro';
+}
+
+.buyTime{
+  padding-top: 10px;
+  font-size: 1.8rem;
+  font-weight: 150;
+  font-family: Inter, 'Source Sans Pro';
+}
+
+.popupchatButton{
+  margin-right: 5px;
+  margin-left: 5px;
+  display: inline-block;
+  background-color: #a7c7df;
+  border-radius: 5px;
+  height: 25px;
+  width: 60px;
+  vertical-align: bottom;
+  font-size: 2rem;
+  font-weight: 400;
+  font-family: Inter, 'Source Sans Pro';
+}
+
+.popupsellButton{
+  display: inline-block;
+  background-color: #a7c7df;
+  border-radius: 5px;
+  height: 25px;
+  width: 35px;
+  vertical-align: bottom;
+  font-size: 2rem;
+  font-weight: 400;
+  font-family: Inter, 'Source Sans Pro';
+}
+
+.popupchatButton:hover{
+  background-color: #6199b3;
+}
+
+.popupsellButton:hover{
+  background-color: #6199b3;
+}
