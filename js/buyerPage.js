@@ -64,11 +64,13 @@ let currentImageIndex = 0; // 좌우 화살표 클릭 시 이미지 인덱스
 function updatePostImages() {
     postImgContainer.innerHTML = "";
 
-    let imgElement = document.createElement("img");
-    imgElement.classList.add("productimg");
-    imgElement.src = imgURL + productImages[currentImageIndex];
-    imgElement.alt = `Product Image ${currentImageIndex + 1}`;
-    postImgContainer.appendChild(imgElement);
+    if (productImages && productImages.length > 0) {
+        let imgElement = document.createElement("img");
+        imgElement.classList.add("productimg");
+        imgElement.src = imgURL + productImages[currentImageIndex];
+        imgElement.alt = `Product Image ${currentImageIndex + 1}`;
+        postImgContainer.appendChild(imgElement);
+    }
 }
 
 function changeImage(isNext) {
@@ -233,3 +235,49 @@ function createCommentElement(commentData) {
 
 /* 페이지 새로고침/새 창 띄울 때마다 로드 */
 getComment();
+
+
+
+/* "구매신청" 버튼에 이벤트 리스너 추가 */
+
+document.getElementById("buyBtn").addEventListener("click", function () {
+    sendTradeRequest(productId);
+});
+
+function sendTradeRequest(productId) {
+    const data = {
+        "productId": productId
+    };
+
+    fetch(url + "/trade-suggests", {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+            'JSESSIONID': cookie,
+        },
+        body: JSON.stringify(data),
+    })
+    .then(data => {
+        console.log(data);
+        if (data.status === "BAD_REQUEST") {
+            // BAD_REQUEST 상태 (상태 코드 400) 처리
+            alert("이미 거래완료된 상품입니다.");
+        } else if (data.status === "FORBIDDEN") {
+            // FORBIDDEN 상태 (상태 코드 403) 처리
+            alert("상품을 판매할 권한이 없습니다.");
+        } else {
+            // 다른 응답 또는 성공을 처리
+            alert("구매신청이 성공적으로 완료되었습니다.");
+        }
+    })
+    .catch(error => {
+        console.error('Error sending trade suggestion:', error);
+        // 여기에 에러 처리 코드를 추가할 수 있습니다.
+    });
+}
+
+/* 1:1채팅 이동 */
+document.querySelector(".chatButton").addEventListener("click", function () {
+    window.location.href = "chat.html";
+});
