@@ -211,6 +211,7 @@ function getKeyword(cookie){
 }
 
 
+/* 상품 보여주기 및 검색 */
 // 초기 페이지 로드 시 전체 상품을 보여주는 함수
 function showAllProducts() {
     fetchProducts(); // 기본적으로 페이지 로드 시 모든 상품을 보여줌
@@ -302,6 +303,7 @@ function makeProductSet(product){
     if (product.productImageNames && product.productImageNames.length > 0) {
         let imageURL = 'https://d1npdfz46uvcun.cloudfront.net/'+product.productImageNames[0];
         productImg.style.backgroundImage = "url("+imageURL+")";
+        productImg.style.backgroundSize = "cover";
     }
     productSet.appendChild(productImg);
 
