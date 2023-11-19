@@ -112,16 +112,17 @@ input:focus{
   flex-shrink: 0;
 }
 .buyerPage-box .left-box .post-box .postContent-box .seller-info .heart-icon {
-  margin-left: auto;
-  margin-top: 0.8rem;
-  width: 3.7514rem;
-  height: 3.3088rem;
+  margin-right: 2rem;
+  width: 3.8rem;
+  height: 3.8rem;
   object-fit: contain;
   vertical-align: top;
   flex-shrink: 0;
+  display: none;
 }
 .buyerPage-box .left-box .post-box .postContent-box .seller-info .act-box {
   box-sizing: border-box;
+  margin-left: auto;
   padding: 1.7rem 0rem 1.6rem 2.374rem;
   height: 100%;
   display: flex;
