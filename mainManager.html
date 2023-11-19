@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>메인페이지</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A400%2C700"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%3A400"/>
+    <link rel="stylesheet" href="./styles/mainManager.css"/>
+  </head>
+  <body>
+    <div class="item--V1K">
+      <div class="nav-bar">
+        <div class="profile-box">
+          <div class="profile-inner">
+            <div class="profile-img"></div>
+            <div class="profile-info">
+              <div class="auto-group-mebu-NTj">
+                <p class="nickname">admin</p>
+                <br/>
+                <p class="ad">관리자</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="goto-mypage">마이페이지</p>
+        <div class="logout">
+          <span id="logoutButton">로그아웃</span>
+        </div>
+      </div>
+      <div class="view-box">
+        <div class="search-bar">
+            <select name ="area" id="area" class="select-area">
+              <option value="all" selected>지역 선택</option>
+              <option value="SEOUL">서울</option>
+              <option value="INCHEON">인천</option>
+              <option value="DAEJEON">대전</option>
+              <option value="GWANGJU">광주</option>
+              <option value="DAEGU">대구</option>
+              <option value="BUSAN">부산</option>
+              <option value="ULSAN">울산</option>
+            </select>
+            <input class="search-word" placeholder="검색어를 입력해주세요">
+            <div class="price">
+              <input type="number" class="min" placeholder="0" min="0" step="1000">
+              <p class="item--QC1">~</p>
+              <input type="number" class="max" placeholder="1000" min="1000" step="1000">
+            </div>
+            <img class="search-icon" src="./assets/search-icon.png"/>
+        </div>
+        <div class="product-all-view-box">
+          <div class="products-list">
+            <!--상품들이 들어올 공간--> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./js/mainManager.js"></script>
+</html>
