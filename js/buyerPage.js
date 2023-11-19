@@ -48,7 +48,14 @@ getInfo(productId);
 /* 구매 신청 */
 let buyButton = document.getElementsByClassName("buyButton")[0];
 buyButton.addEventListener("click", function(){
-    viewPopup();
+    let user = localStorage.getItem("user");
+    if(user == null){
+        alert("로그인 후 가능합니다.");
+    }else if(user == "admin"){
+        alert("관리자는 구매신청 할 수 없습니다.");
+    }else{
+        viewPopup();
+    }
 });
 
 function viewPopup(){
@@ -167,7 +174,10 @@ function isHeart(){
 }
 
 /* 페이지 새로고침/새 창 띄울 때마다 로드 */
-isHeart();
+//로그인 하지 않았거나 관리자인 경우 하트 아이콘 숨김
+if(localStorage.getItem("user")!=null){
+    isHeart();
+}
 
 
 /* 관심상품 등록 */
