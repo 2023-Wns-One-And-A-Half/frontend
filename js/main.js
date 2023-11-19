@@ -279,6 +279,21 @@ function makeProductSet(product){
     // productSet 생성
     let productSet = document.createElement('div');
     productSet.classList.add('productSet');
+    
+    // productSet을 생성할 때 클릭시 페이지 이동 이벤트를 함께 추가
+    productSet.addEventListener("click", async function(){
+        sessionStorage.setItem("product", product.id);
+        if(cookie!=null){
+            let isSellerCheck = await isSeller(product.id);
+            if(isSellerCheck){
+                window.open('./sellerPage.html', '_self');
+            }else{
+                window.open('./buyerPage.html', '_self');
+            }
+        }else{
+            window.open('./buyerPage.html', '_self');
+        }
+    })
 
     // product-img 생성
     let productImg = document.createElement('div');
@@ -286,7 +301,7 @@ function makeProductSet(product){
     // 만약 이미지가 있다면, 첫 번째 이미지를 설정
     if (product.productImageNames && product.productImageNames.length > 0) {
         let imageURL = 'https://d1npdfz46uvcun.cloudfront.net/'+product.productImageNames[0];
-        productImg.style.backgroundImage = imageURL;
+        productImg.style.backgroundImage = "url("+imageURL+")";
     }
     productSet.appendChild(productImg);
 
@@ -307,4 +322,26 @@ function makeProductSet(product){
     productSet.appendChild(productInfo);
 
     return productSet;
+}
+
+/* 클릭한 상품의 판매자와 로그인 유저가 같은지 확인 */
+async function isSeller(productId){
+    let check = await fetch(url + "/products/"+productId, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+            //'JSESSIONID': cookie,
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        let check = localStorage.getItem("user") == data.sellerInfo.nickname;
+        return check;
+    })
+    .catch(error => {
+        console.error('Error fetching check Seller:', error);
+    });
+
+    return check;
 }
