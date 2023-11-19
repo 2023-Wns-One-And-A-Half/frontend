@@ -14,6 +14,37 @@ mainButton.addEventListener("click", function(){
     window.open('./main.html', '_self');
 })
 
+/* 키워드 편집 (추가 및 삭제) */
+let keywordEditButton = document.getElementsByClassName("keyword-editButton")[0];
+keywordEditButton.addEventListener("click", function(){
+    let input = checkKeyword();
+    let exist = false;
+    let deleteId = "";
+
+    if(input != null){
+        let keywordList = document.querySelectorAll('.keyword');
+        keywordList.forEach(keyword => {
+            console.log(keyword.innerHTML);
+            if(input == keyword.innerHTML){
+                exist = true;
+                deleteId = keyword.getAttribute('id');
+            }
+        });
+    
+        if(exist){
+            alert("키워드 \'"+input+"\'를 삭제합니다.");
+            deleteKeyword(deleteId);
+        }else{
+            let keywordList = document.getElementsByClassName("keyword-list")[0];
+            if(keywordList.childElementCount<9){
+                postKeyword(input);
+            }else{
+                alert("키워드는 최대 9개까지 작성 가능합니다.");
+            }
+        }
+    }
+})
+
 /* 프로필 정보 보여주기 */
 //서버로부터 로그인 정보 불러오기/
 let username = document.getElementsByClassName("nickname")[0];
@@ -57,12 +88,13 @@ function getInfo(){
             default:
                 activityArea = "미정";
         }
+        /*
         console.log(data.id);
         console.log(data.nickname);
         console.log(profileURL);
         console.log(data.activityArea);
         console.log(data.black);
-
+        */
         if(cookie!=null){
             viewInfo(data.nickname, activityArea, profileURL)
         }
@@ -73,7 +105,7 @@ function getInfo(){
 }
 // 새로고침/창 띄울 때마다 정보 가져옴
 getInfo();
-// 메인페이지에 로그인 유저 정보 띄우기
+// 마이페이지에 로그인 유저 정보 띄우기
 function viewInfo(nickname, activityArea, profileURL){
     if(localStorage.getItem("user")==null){
         username.innerHTML = "admin";
@@ -81,7 +113,6 @@ function viewInfo(nickname, activityArea, profileURL){
         username.innerHTML = nickname;
         userarea.innerHTML = "활동지역 : "+activityArea;
         userimg.innerHTML = "<img id=\"profile-img\" src=\""+profileURL+"\"/>";
-        //addKeywordBack.style.display = 'block';
     }
 }
 
@@ -113,9 +144,84 @@ function viewKeyword(keywords){
     keywords.forEach(keyword => {
         let keywordElement = document.createElement('div');
         keywordElement.classList.add('keyword');
+        keywordElement.setAttribute('id', keyword.id);
         keywordElement.textContent = keyword.content;
         // 생성한 키워드 요소를 키워드 리스트에 추가
         keywordList.appendChild(keywordElement);
+    });
+}
+
+/* 키워드 입력 및 양식에 맞는지 검사 */
+function checkKeyword(){
+    let keyword = prompt("키워드를 추가하거나 삭제할 수 있습니다.\n\
+기존에 등록되어있던 키워드를 입력하면 해당 키워드가 삭제되고,\n\
+기존에 없던 키워드를 새로 입력하면 키워드가 추가됩니다.");
+    if(keyword == null){
+        alert("키워드 편집이 취소되었습니다.");
+    }else{
+        while(keyword.startsWith(" ")){
+            keyword = keyword.substring(1);
+        }
+
+        while(keyword.endsWith(" ")){
+            keyword = keyword.substring(0, keyword.length-1);
+        }
+        
+        if(keyword == ""){
+            alert("키워드가 입력되지 않았습니다.");
+        }else{
+            keyword = keyword.replace(/(^ *)|( *$)/g, "").replace(/ +/g, "_");
+            
+            if(keyword.length>8){
+                alert("키워드는 공백포함 8자 이내로 작성 가능합니다.");
+            }else{
+                return keyword;
+            }
+        }
+    }
+}
+
+/* 서버에 추가할 키워드 보내기 */
+function postKeyword(keyword){
+    const data = {
+        "content": keyword,
+    }
+
+    fetch(url+"/keywords",{
+    method: 'POST',
+    credentials : 'include',
+    headers: {
+        'Content-Type': 'application/json',
+        'JSESSIONID' : cookie,
+    },
+    body: JSON.stringify(data),
+    })
+    .then(data => {
+        console.log(data);
+        window.open('./userPage.html', '_self');
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+/* 서버에 삭제할 키워드 보내기 */
+function deleteKeyword(deleteId){
+    fetch(url+"/keywords/"+deleteId, {
+        method: 'DELETE',
+        credentials : 'include',
+        headers: {
+            'Content-Type': 'application/json',
+            'JSESSIONID' : cookie,
+        },
+    })
+    .then(data => {
+        console.log(data);
+        alert("키워드가 삭제되었습니다.");
+        window.open('./userPage.html', '_self');
+    })
+    .catch(error => {
+        console.error('Error:', error);
     });
 }
 
