@@ -32,7 +32,6 @@ input:focus{
   display: flex;
   flex: 1 0 auto;
   align-items: center;
-  text-align: center;
   flex-shrink: 0;
 }
 .buyerPage-box .left-box .prevImg-icon {
@@ -74,7 +73,6 @@ input:focus{
   flex-shrink: 0;
 }
 .buyerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile {
-  margin-right: 13.8743rem;
   height: 100%;
   display: flex;
   align-items: center;
@@ -114,6 +112,7 @@ input:focus{
   flex-shrink: 0;
 }
 .buyerPage-box .left-box .post-box .postContent-box .seller-info .heart-icon {
+  margin-left: auto;
   margin-top: 0.8rem;
   width: 3.7514rem;
   height: 3.3088rem;
@@ -147,6 +146,7 @@ input:focus{
   flex-shrink: 0;
 }
 .buyerPage-box .left-box .post-box .postContent-box .seller-info .act-box .buyButton {
+  margin-left: auto;
   width: 13.3rem;
   height: 100%;
   font-size: 2.2rem;
@@ -179,7 +179,7 @@ input:focus{
   flex-shrink: 0;
 }
 .buyerPage-box .left-box .post-box .postContent-box .title-box .title {
-  margin-right: 4.5rem;
+  margin-right: 2.5rem;
   font-size: 3.2rem;
   font-weight: 700;
   line-height: 1.2125;
@@ -189,7 +189,7 @@ input:focus{
   flex-shrink: 0;
 }
 .buyerPage-box .left-box .post-box .postContent-box .title-box .price {
-  margin: 0rem 18.5rem 0.2rem 0rem;
+  margin: 0rem 18.5rem 0rem 0rem;
   font-size: 2.2rem;
   font-weight: 400;
   line-height: 1.2125;
@@ -199,7 +199,7 @@ input:focus{
   flex-shrink: 0;
 }
 .buyerPage-box .left-box .post-box .postContent-box .title-box .post-info {
-  margin: 0.8rem 0rem 0.6rem 0rem;
+  margin-left: auto;
   height: calc(100% - 1.4rem);
   display: flex;
   align-items: center;
