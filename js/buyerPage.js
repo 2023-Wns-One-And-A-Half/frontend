@@ -237,12 +237,46 @@ function createCommentElement(commentData) {
 getComment();
 
 
+/* 팝업에 상품 정보 보이게하기*/
+function updatePopupInfo() {
+    fetch(url + "/products/" + productId, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+            'JSESSIONID': cookie,
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        let popupTitle = document.querySelector(".popuptitle");
+        let popupPrice = document.querySelector(".popupPrice");
 
+        popupTitle.textContent = data.name;
+        popupPrice.textContent = data.price + " 원";
+    })
+    .catch(error => {
+        console.error('Error updating popup info:', error);
+    });
+}
 /* "구매신청" 버튼에 이벤트 리스너 추가 */
+/* 구매 신청 목록 팝업 */
+let popup = document.getElementsByClassName("popup")[0];
+let buyButton = document.getElementById("buyBtn");
+let cancleButton = document.getElementsByClassName("cancleButton")[0];
 
-document.getElementById("buyBtn").addEventListener("click", function () {
+buyButton.addEventListener("click", function(){
+    popup.style.display = 'block';
+    updatePopupInfo();
+})
+cancleButton.addEventListener("click", function(){
+    popup.style.display = 'none';
+})
+
+document.getElementById("okBtn").addEventListener("click", function () {
     // 상품에 대한 거래 제안 여부 확인
     checkAndSendTradeSuggestion(productId);
+    popup.style.display = 'none';
 });
 
 function checkAndSendTradeSuggestion(productId) {
