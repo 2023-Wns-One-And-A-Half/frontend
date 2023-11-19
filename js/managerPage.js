@@ -14,7 +14,7 @@ function getUser(){
         method: 'GET',
         credentials : 'include',
         headers: {
-            //'Content-Type': 'application/json',
+            'Content-Type': 'application/json',
             'JSESSIONID' : cookie,
         },
     }).then(response => response.json())
@@ -57,12 +57,12 @@ function getBlackUser(){
         method: 'GET',
         credentials : 'include',
         headers: {
-            //'Content-Type': 'application/json',
+            'Content-Type': 'application/json',
             'JSESSIONID' : cookie,
         },
     }).then(response => response.json())
     .then(data => {
-        viewblackUsers(data);
+        viewBlackUser(data);
     })
     .catch(error => {
         console.error('Error fetching blackList:', error);
