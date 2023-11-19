@@ -233,3 +233,14 @@ function createCommentElement(commentData) {
 
 /* 페이지 새로고침/새 창 띄울 때마다 로드 */
 getComment();
+
+/* 구매 신청 목록 팝업 */
+let popup = document.getElementsByClassName("popup")[0];
+let sellButton = document.getElementsByClassName("sellButton")[0];
+let closeButton = document.getElementsByClassName("closeButton")[0];
+sellButton.addEventListener("click", function(){
+    popup.style.display = 'block';
+})
+closeButton.addEventListener("click", function(){
+    popup.style.display = 'none';
+})
