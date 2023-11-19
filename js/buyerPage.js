@@ -241,10 +241,39 @@ getComment();
 /* "구매신청" 버튼에 이벤트 리스너 추가 */
 
 document.getElementById("buyBtn").addEventListener("click", function () {
-    sendTradeRequest(productId);
+    // 상품에 대한 거래 제안 여부 확인
+    checkAndSendTradeSuggestion(productId);
 });
 
-function sendTradeRequest(productId) {
+function checkAndSendTradeSuggestion(productId) {
+    // 거래 제안 여부 확인
+    fetch(url + "/trade-suggests/exist?productId=" + productId, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+            'JSESSIONID': cookie,
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.suggested) {
+            // 거래 제안을 이미 한 경우
+            let suggestedDate = new Date(data.suggestedDate);
+            alert(`이 상품에 대해 이미 구매 제안을 했습니다.\n제안 일시: ${suggestedDate}`);
+        } else {
+            // 거래 제안을 하지 않은 경우
+            sendTradeSuggestion(productId); // 거래 제안을 하고 구매확정 처리를 수행
+        }
+    })
+    .catch(error => {
+        console.error('Error checking trade suggestion:', error);
+        // 여기에 에러 처리 코드를 추가할 수 있습니다.
+    });
+}
+
+function sendTradeSuggestion(productId) {
+    // 거래 제안을 서버에 전송
     const data = {
         "productId": productId
     };
@@ -259,23 +288,22 @@ function sendTradeRequest(productId) {
         body: JSON.stringify(data),
     })
     .then(data => {
-        console.log(data);
         if (data.status === "BAD_REQUEST") {
-            // BAD_REQUEST 상태 (상태 코드 400) 처리
+            // 거래완료 상품이거나 기타 오류 처리
             alert("이미 거래완료된 상품입니다.");
         } else if (data.status === "FORBIDDEN") {
-            // FORBIDDEN 상태 (상태 코드 403) 처리
+            // 판매 권한이 없는 경우 처리
             alert("상품을 판매할 권한이 없습니다.");
         } else {
-            // 다른 응답 또는 성공을 처리
+            // 거래 제안 성공 및 구매확정 처리
             alert("구매신청이 성공적으로 완료되었습니다.");
         }
     })
     .catch(error => {
         console.error('Error sending trade suggestion:', error);
-        // 여기에 에러 처리 코드를 추가할 수 있습니다.
     });
 }
+
 
 /* 1:1채팅 이동 */
 document.querySelector(".chatButton").addEventListener("click", function () {
