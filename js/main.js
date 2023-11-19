@@ -209,3 +209,102 @@ function getKeyword(cookie){
             console.error('Error:', error);
         });
 }
+
+
+// 초기 페이지 로드 시 전체 상품을 보여주는 함수
+function showAllProducts() {
+    fetchProducts(); // 기본적으로 페이지 로드 시 모든 상품을 보여줌
+}
+
+// 검색 버튼 클릭 시 검색 수행
+document.querySelector('.search-icon').addEventListener('click', searchProducts);
+
+// 검색어에 따른 상품 보여주는 함수
+function searchProducts() {
+    let area = document.getElementById('area').value;
+    let word = document.querySelector('.search-word').value;
+    let minPrice = document.querySelector('.price .min').value;
+    let maxPrice = document.querySelector('.price .max').value;
+
+    let queryParams = new URLSearchParams({
+        page: 0,
+        size: 30,
+        name: word,
+        activityArea: area,
+        minPrice: minPrice,
+        maxPrice: maxPrice
+    });
+
+    let detailUrl = `/products?${queryParams}`;
+
+    fetchProducts(detailUrl);
+}
+
+// 상품을 가져와 화면에 보여주는 함수
+function fetchProducts(detailUrl = "/products") {
+    fetch(url + detailUrl, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            //'Content-Type': 'application/json',
+            //'JSESSIONID': cookie,
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        viewProducts(data);
+    })
+    .catch(error => {
+        console.error('Error fetching products:', error);
+    });
+}
+
+// 상품을 화면에 보여주는 함수
+function viewProducts(products) {
+    let productsList = document.querySelector('.products-list');
+    productsList.innerHTML = '';
+
+    products.content.forEach(product => {
+        let productSet = makeProductSet(product);
+        productsList.appendChild(productSet);
+    });
+}
+
+// 초기 페이지 로드 시 전체 상품 보여줌
+showAllProducts();
+
+/* 상품 set 만드는 함수*/
+function makeProductSet(product){
+    // productSet 생성
+    let productSet = document.createElement('div');
+    productSet.classList.add('productSet');
+
+    // product-img 생성
+    let productImg = document.createElement('div');
+    productImg.classList.add('product-img');
+    // 만약 이미지가 있다면, 첫 번째 이미지를 설정
+    if (product.productImageNames && product.productImageNames.length > 0) {
+        let imageURL = 'https://d1npdfz46uvcun.cloudfront.net/'+product.productImageNames[0];
+        productImg.style.backgroundImage = imageURL;
+    }
+    productSet.appendChild(productImg);
+
+    // product-info 생성
+    let productInfo = document.createElement('div');
+    productInfo.classList.add('product-info');
+    // 상품 이름 추가
+    let productName = document.createElement('p');
+    productName.classList.add('product-name');
+    productName.textContent = product.name;
+    productInfo.appendChild(productName);
+    // 상품 가격추가
+    let productPrice = document.createElement('p');
+    productPrice.classList.add('product-price');
+    productPrice.textContent = `${product.price} 원`;
+    productInfo.appendChild(productPrice);
+
+    productSet.appendChild(productInfo);
+
+    return productSet;
+}
