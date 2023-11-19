@@ -25,6 +25,7 @@ okButton.addEventListener("click", function(){
 })
 
 
+/* 서버에 로그인 정보 전송 */
 function postInfo(id, pw){
     const data = {
         "username":id,
@@ -39,19 +40,44 @@ function postInfo(id, pw){
     },
     body: JSON.stringify(data),
     }).then(response => response.json())
-    .then(data => {
-            if(data.status == "NOT_FOUND" || data.status == "UNAUTHORIZED" || data.status == "BAD_REQUEST"){
-                alert(data.message);
-            }else{
-                console.log(data);
-                localStorage.setItem("jsessionid", data.jsessionid);
-                localStorage.setItem("user", id);
+    .then(async data => {
+        if(data.status == "NOT_FOUND" || data.status == "UNAUTHORIZED" || data.status == "BAD_REQUEST"){
+            alert(data.message);
+        }else{
+            console.log(data);
+            localStorage.setItem("jsessionid", data.jsessionid);
+            localStorage.setItem("user", id);
+            let black = await checkBlack(data.jsessionid);
+            if(black == false){
                 alert("로그인 되었습니다.");
                 window.open('./main.html', '_self');
+            }else{
+                alert("해당 계정은 블랙리스트에 등록되어 로그인 하실 수 없습니다.");
             }
-        
+        }
     })
     .catch(error => {
         console.error('Error:', error);
     });
+}
+
+
+/* 로그인 하려는 계정이 블랙리스트인지 확인 */
+async function checkBlack(cookie){
+    let black = await fetch(url+"/members/my", {
+        method: 'GET',
+        credentials : 'include',
+        headers: {
+        'Content-Type': 'application/json',
+        'JSESSIONID' : cookie,
+        },
+    }).then(response => response.json())
+        .then(data => {
+           return data.black; 
+        })
+        .catch(error => {
+            console.error('Error:', error);
+    });
+
+    return black;
 }
