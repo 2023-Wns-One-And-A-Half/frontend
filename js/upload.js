@@ -62,38 +62,54 @@ function check(name, price){
     }
 }
 
-function postInfo(name, price, area, description, productImages){
+function postInfo(name, price, area, description, productImages) {
     let formData = new FormData();
     formData.append("name", name);
-    //formData.append("area", area);
+    // formData.append("area", area);
     formData.append("description", description);
     formData.append("price", price);
-    
+
     // productImages가 비어있을 경우 기본 초기 사진 추가
     if (productImages.length === 0) {
-        let defaultImageFile = new File(["defaultProductImg.png"], "./assets/defaultProductImg.png", { type: "image/png" });
-        formData.append("productImages", defaultImageFile);
+        // 로컬 기본 이미지를 Blob으로 변환
+        fetch("./assets/defaultProductImg.png")
+            .then(response => response.blob())
+            .then(blob => {
+                const defaultImageFile = new File([blob], "defaultProductImg.png", { type: "image/png" });
+                formData.append("productImages", defaultImageFile);
+
+                // 나머지 코드 실행
+                sendFormData(formData);
+            })
+            .catch(error => {
+                console.error("Error fetching default image:", error);
+            });
     } else {
+        // 이미지가 있을 경우 FormData에 추가
         for (let i = 0; i < productImages.length; i++) {
             formData.append("productImages", productImages[i]);
         }
+
+        // 나머지 코드 실행
+        sendFormData(formData);
     }
-    
-    fetch(url+"/products", {
-    method: 'POST',
-    credentials: 'include',
-    headers: {
-        //'Content-Type': 'multipart/form-data',
-        'JSESSIONID' : cookie,
-    },
-    body: formData,
+}
+
+function sendFormData(formData) {
+    fetch(url + "/products", {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'JSESSIONID': cookie,
+        },
+        body: formData,
     })
-    .then(data => {
-        console.log(data);
-        alert("상품이 등록되었습니다.");
-        window.open('./main.html', '_self');
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+        .then(data => {
+            console.log(data);
+            alert("상품이 등록되었습니다.");
+            window.open('./main.html', '_self');
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 }
