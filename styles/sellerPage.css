@@ -87,12 +87,16 @@ input:focus{
   margin-right: 1.6rem;
   width: 8.4rem;
   height: 8.5rem;
-  background-color: #000000;
+  background-color: #ffffff;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
 .sellerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .seller-img .sellerimg{
   max-width: 100%;
   max-height: 100%;
+  display: flex;
+  align-items: center;
 }
 .sellerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .info-box {
   margin: 0.2rem 0rem 0.5rem 0rem;
@@ -257,10 +261,14 @@ input:focus{
   width: 100%;
   height: 8.5rem;
   background-color: #fdfdfd;
+  display: flex;
+  align-items: center;
 }
 .sellerPage-box .right-box .comment-box .item--Qws .user-box .user-img .userimg{
   max-width: 100%;
   max-height: 100%;
+  display: flex;
+  align-items: center;
 }
 .sellerPage-box .right-box .comment-box .item--Qws .user-box .user-name {
   font-size: 1.5rem;

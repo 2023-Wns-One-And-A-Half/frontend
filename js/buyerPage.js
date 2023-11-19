@@ -3,20 +3,22 @@ let url = 'http://3.39.230.180:8080';
 let productId = sessionStorage.getItem("product");
 let cookie = localStorage.getItem("jsessionid");
 
-/* 채팅 페이지로 이동 */
-let chatButton = document.getElementsByClassName("chatButton")[0];
-chatButton.addEventListener("click", function(){
-    window.open('./chat.html', '_self');
-})
-
-
 /* 게시글 정보 불러오기 */
+/* 상품 및 판매자 정보 보이기 */
 let sellerName = document.getElementsByClassName("seller-name")[0];
 let title = document.getElementsByClassName("title")[0];
 let price = document.getElementsByClassName("price")[0];
 let viewCount = document.getElementsByClassName("view-count")[0];
 let heartCount = document.getElementsByClassName("heart-count")[0];
 let post = document.getElementsByClassName("post-content")[0];
+
+let postImgContainer = document.getElementById("postImageContainer");
+let sellerImgContainer = document.getElementById("sellerImageContainer");
+let productImages = []; // 여러 상품 이미지 경로를 저장할 배열
+let sellerImage = ""; // 판매자 이미지 경로를 저장할 변수
+
+let imgURL = 'https://d1npdfz46uvcun.cloudfront.net/';
+
 function getInfo(productId){
     fetch(url + "/products/"+productId, {
         method: 'GET',
@@ -34,6 +36,12 @@ function getInfo(productId){
         viewCount.innerHTML = "조회 "+data.viewCount;
         heartCount.innerHTML = "관심 "+data.interestedCount;
         post.innerHTML = data.description;
+        
+        sellerImage = data.sellerInfo.profileImageName;
+        updateSellerImage();
+        productImages = data.productImageNames;
+        updatePostImages();
+
         console.log(data);
     })
     .catch(error => {
@@ -41,29 +49,55 @@ function getInfo(productId){
     });
 }
 
-/* 페이지 새로고침/새 창 띄울 때마다 로드 */
-getInfo(productId);
+function updateSellerImage() {
+    sellerImgContainer.innerHTML = "";
+  
+    let imgElement = document.createElement("img");
+    imgElement.classList.add("sellerimg")
+    imgElement.src = imgURL + sellerImage; // 이미지 경로를 조합합니다.
+    imgElement.alt = "Seller Image";
+    sellerImgContainer.appendChild(imgElement);
+}
 
+let currentImageIndex = 0; // 좌우 화살표 클릭 시 이미지 인덱스
+  
+function updatePostImages() {
+    postImgContainer.innerHTML = "";
+  
+    productImages.forEach((imagePath, index) => {
+      let imgElement = document.createElement("img");
+      imgElement.classList.add("productimg");
+      imgElement.src = imgURL + imagePath;
+      imgElement.alt = `Product Image ${index + 1}`;
+      postImgContainer.appendChild(imgElement);
+    });
+  
+    currentImageIndex = 0; // 현재 이미지 인덱스를 초기화합니다.
+}
 
-/* 구매 신청 */
-let buyButton = document.getElementsByClassName("buyButton")[0];
-buyButton.addEventListener("click", function(){
-    let user = localStorage.getItem("user");
-    let id = localStorage.getItem("id");
-    if(user == null){
-        alert("로그인 후 가능합니다.");
-    }else if(user == "admin" && id == null){
-        alert("관리자는 구매신청 할 수 없습니다.");
-    }else{
-        viewPopup();
+document.querySelector(".prevImg-icon").addEventListener("click", function () {
+    if (currentImageIndex > 0) {
+      currentImageIndex--;
+    } else {
+      currentImageIndex = images.length - 1;
     }
+  
+    updatePostImages();
+});
+  
+document.querySelector(".nextImg-icon").addEventListener("click", function () {
+    if (currentImageIndex < images.length - 1) {
+      currentImageIndex++;
+    } else {
+      currentImageIndex = 0;
+    }
+  
+    updatePostImages();
 });
 
-function viewPopup(){
-    if(confirm("구매신청 하시겠습니까?")){
-        alert("신청되었습니다.");
-    }
-}
+//페이지 새로고침/새 창 띄울 때마다 로드
+getInfo(productId);
+
 
 
 /* 댓글 작성 */
@@ -86,7 +120,6 @@ sendButton.addEventListener("click", function(){
     }
 })
 
-
 /* 댓글 작성 시 엔터키 입력 인식 */
 sendContent.addEventListener("keyup", function (event) {
     if (event.keyCode == 13) {
@@ -95,143 +128,111 @@ sendContent.addEventListener("keyup", function (event) {
     }
 });
 
-
-/* 서버에 작성한 댓글 전송 */
-function sendComment(comment){
+/* 댓글 작성 -> 서버에 작성한 댓글 전송 */
+function sendComment(comment) {
     const data = {
         "productId": productId,
         "content": comment,
     }
-    fetch(url+"/comments",{
-    method: 'POST',
-    credentials : 'include',
-    headers: {
-        'Content-Type': 'application/json',
-        'JSESSIONID' : cookie,
-    },
-    body: JSON.stringify(data),
+
+    fetch(url + "/comments", {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+            'JSESSIONID': cookie,
+        },
+        body: JSON.stringify(data),
     })
-    .then(data => {
-        console.log(data);
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+        .then(data => {
+            console.log(data);
+            getComment();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 }
 
+/* 댓글 보내고 불러오고 보여주는 모든것 */
 
-/* 게시글에 달린 댓글 조회 */
-function getComment(){
-    fetch(url+"/comments?productId="+productId, {
+// 페이지 로드 시 댓글 불러오기
+getComment();
+
+// 댓글 조회 후 댓글 수 업데이트
+function getComment() {
+    fetch(url + "/comments?productId=" + productId, {
         method: 'GET',
-        credentials : 'include',
+        credentials: 'include',
         headers: {
-          'Content-Type': 'application/json',
-          'JSESSIONID' : cookie,
+            'Content-Type': 'application/json',
+            'JSESSIONID': cookie,
         },
     }).then(response => response.json())
-    .then(data => {
-        for(let i=0; i<data.length; i++){
-            console.log(data[i]);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+        .then(data => {
+            let commentBox = document.querySelector(".comment-box");
+            let commentCountElement = document.querySelector(".comment-count");
+            commentBox.innerHTML = "";
+            commentCountElement.textContent = `댓글 ${data.length}`;
+            commentBox.appendChild(commentCountElement);
+            
+            for (let i = 0; i < data.length; i++) {
+                let commentElement = createCommentElement(data[i]);
+                commentBox.appendChild(commentElement);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+
+function padZero(num) {
+    return num < 10 ? `0${num}` : num;
+}
+function createCommentElement(commentData) {
+    let itemElement = document.createElement("div");
+    itemElement.classList.add("item--Qws");
+  
+    let userBoxElement = document.createElement("div");
+    userBoxElement.classList.add("user-box");
+  
+    let userImgElement = document.createElement("div");
+    userImgElement.classList.add("user-img");
+    // 이미지 불러오기
+    let userImg = document.createElement("img");
+    userImg.classList.add("userimg");
+    userImg.src = imgURL + commentData.writerInfo.profileImageName;
+    userImg.alt = "User Image";
+    userImgElement.appendChild(userImg);
+  
+    let userNameElement = document.createElement("p");
+    userNameElement.classList.add("user-name");
+    userNameElement.textContent = commentData.writerInfo.nickname;
+  
+    userBoxElement.appendChild(userImgElement);
+    userBoxElement.appendChild(userNameElement);
+  
+    let userCommentBoxElement = document.createElement("div");
+    userCommentBoxElement.classList.add("userComment-box");
+  
+    let userCommentElement = document.createElement("p");
+    userCommentElement.classList.add("userComment");
+    userCommentElement.textContent = commentData.content;
+  
+    let userCommentTimeElement = document.createElement("p");
+    userCommentTimeElement.classList.add("userComment-time");
+    let date = new Date(commentData.createdDate);
+    let formattedDate = `${date.getFullYear()}-${padZero(date.getMonth() + 1)}-${padZero(date.getDate())} ${padZero(date.getHours())}:${padZero(date.getMinutes())}`;
+    userCommentTimeElement.textContent = formattedDate
+    
+  
+    userCommentBoxElement.appendChild(userCommentElement);
+    userCommentBoxElement.appendChild(userCommentTimeElement);
+  
+    itemElement.appendChild(userBoxElement);
+    itemElement.appendChild(userCommentBoxElement);
+  
+    return itemElement;
 }
 
 /* 페이지 새로고침/새 창 띄울 때마다 로드 */
 getComment();
-
-
-/* 내 관심상품 조회, 이 상품이 관심상품인지 비교 */
-let noHeart = document.getElementById("noHeart");
-let yesHeart = document.getElementById("yesHeart");
-function isHeart(){
-    fetch(url+"/interest-products/my", {
-        method: 'GET',
-        credentials : 'include',
-        headers: {
-          'Content-Type': 'application/json',
-          'JSESSIONID' : cookie,
-        },
-    }).then(response => response.json())
-    .then(data => {
-        if(data.length == 0){
-            noHeart.style.display = 'block';
-        }else{
-            for(let i=0; i<data.length; i++){
-                if(productId == data[i].id){
-                    yesHeart.style.display = 'block';
-                }else{
-                    noHeart.style.display = 'block';
-                }
-            }
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-}
-
-/* 페이지 새로고침/새 창 띄울 때마다 로드 */
-//로그인 하지 않았거나 관리자인 경우 하트 아이콘 숨김
-if(localStorage.getItem("user")!=null){
-    isHeart();
-}
-
-
-/* 관심상품 등록 */
-noHeart.addEventListener("click", function(){
-    addHeart(productId);
-})
-function addHeart(productId){
-    const data = {
-        "productId": productId,
-    }
-    fetch(url+"/interest-products", {
-        method: 'POST',
-        credentials : 'include',
-        headers: {
-          'Content-Type': 'application/json',
-          'JSESSIONID' : cookie,
-        },
-        body: JSON.stringify(data),
-    })
-    .then(data => {
-        console.log(data);
-        noHeart.style.display = 'none';
-        yesHeart.style.display = 'block';
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-}
-
-
-/* 관심상품 삭제 */
-yesHeart.addEventListener("click", function(){
-    deleteHeart(productId);
-})
-function deleteHeart(productId){
-    const data = {
-        "productId": productId,
-    }
-    fetch(url+"/interest-products", {
-        method: 'DELETE',
-        credentials : 'include',
-        headers: {
-          'Content-Type': 'application/json',
-          'JSESSIONID' : cookie,
-        },
-        body: JSON.stringify(data),
-    })
-    .then(data => {
-        console.log(data);
-        noHeart.style.display = 'block';
-        yesHeart.style.display = 'none';
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-}

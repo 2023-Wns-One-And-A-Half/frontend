@@ -18,7 +18,7 @@ input {
 input:focus{
   outline: none;
 }
-.buyerPage-box {
+.sellerPage-box {
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -26,7 +26,7 @@ input:focus{
   align-items: center;
   background-color: #ffffff;
 }
-.buyerPage-box .left-box {
+.sellerPage-box .left-box {
   box-sizing: border-box;
   justify-content: center;
   display: flex;
@@ -34,7 +34,7 @@ input:focus{
   align-items: center;
   flex-shrink: 0;
 }
-.buyerPage-box .left-box .prevImg-icon {
+.sellerPage-box .left-box .prevImg-icon {
   margin: 0rem 2.856rem 27.8rem 0rem;
   width: 2.3871rem;
   height: 4.0509rem;
@@ -42,7 +42,7 @@ input:focus{
   vertical-align: top;
   flex-shrink: 0;
 }
-.buyerPage-box .left-box .post-box {
+.sellerPage-box .left-box .post-box {
   margin-right: 2.6912rem;
   width: 62.5rem;
   height: 100%;
@@ -51,13 +51,18 @@ input:focus{
   flex-direction: column;
   flex-shrink: 0;
 }
-.buyerPage-box .left-box .post-box .post-img {
+.sellerPage-box .left-box .post-box .post-img {
   width: 100%;
   height: 56.7rem;
   background-color: #bfbfbf;
   flex-shrink: 0;
 }
-.buyerPage-box .left-box .post-box .postContent-box {
+.sellerPage-box .left-box .post-box .post-img .productimg{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.sellerPage-box .left-box .post-box .postContent-box {
   box-sizing: border-box;
   padding-top: 3.4rem;
   width: 100%;
@@ -65,34 +70,42 @@ input:focus{
   flex-direction: column;
   flex-shrink: 0;
 }
-.buyerPage-box .left-box .post-box .postContent-box .seller-info {
+.sellerPage-box .left-box .post-box .postContent-box .seller-info {
   margin-bottom: 4.8rem;
   height: 8.5rem;
   display: flex;
   align-items: center;
   flex-shrink: 0;
 }
-.buyerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile {
+.sellerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile {
   height: 100%;
   display: flex;
   align-items: center;
   flex-shrink: 0;
 }
-.buyerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .seller-img {
+.sellerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .seller-img {
   margin-right: 1.6rem;
   width: 8.4rem;
   height: 8.5rem;
-  background-color: #000000;
+  background-color: #ffffff;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
-.buyerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .info-box {
+.sellerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .seller-img .sellerimg{
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+}
+.sellerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .info-box {
   margin: 0.2rem 0rem 0.5rem 0rem;
   height: calc(100% - 0.7rem);
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
 }
-.buyerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .info-box .seller-label {
+.sellerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .info-box .seller-label {
   margin-bottom: 1.1rem;
   font-size: 2.4rem;
   font-weight: 400;
@@ -102,7 +115,7 @@ input:focus{
   white-space: nowrap;
   flex-shrink: 0;
 }
-.buyerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .info-box .seller-name {
+.sellerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .info-box .seller-name {
   font-size: 3rem;
   font-weight: 600;
   line-height: 1.2125;
@@ -111,7 +124,7 @@ input:focus{
   white-space: nowrap;
   flex-shrink: 0;
 }
-.buyerPage-box .left-box .post-box .postContent-box .seller-info .heart-icon {
+buyerPage-box .left-box .post-box .postContent-box .seller-info .heart-icon {
   margin-right: 2rem;
   width: 3.8rem;
   height: 3.8rem;
@@ -172,14 +185,14 @@ input:focus{
   background-color: #6199b3 !important;
 }
 
-.buyerPage-box .left-box .post-box .postContent-box .title-box {
+.sellerPage-box .left-box .post-box .postContent-box .title-box {
   margin-bottom: 1.8rem;
   height: 3.9rem;
   display: flex;
   align-items: center;
   flex-shrink: 0;
 }
-.buyerPage-box .left-box .post-box .postContent-box .title-box .title {
+.sellerPage-box .left-box .post-box .postContent-box .title-box .title {
   margin-right: 2.5rem;
   font-size: 3.2rem;
   font-weight: 700;
@@ -189,7 +202,7 @@ input:focus{
   white-space: nowrap;
   flex-shrink: 0;
 }
-.buyerPage-box .left-box .post-box .postContent-box .title-box .price {
+.sellerPage-box .left-box .post-box .postContent-box .title-box .price {
   margin: 0rem 18.5rem 0rem 0rem;
   font-size: 2.2rem;
   font-weight: 400;
@@ -199,14 +212,14 @@ input:focus{
   white-space: nowrap;
   flex-shrink: 0;
 }
-.buyerPage-box .left-box .post-box .postContent-box .title-box .post-info {
+.sellerPage-box .left-box .post-box .postContent-box .title-box .post-info {
   margin-left: auto;
   height: calc(100% - 1.4rem);
   display: flex;
   align-items: center;
   flex-shrink: 0;
 }
-.buyerPage-box .left-box .post-box .postContent-box .title-box .post-info .view-count {
+.sellerPage-box .left-box .post-box .postContent-box .title-box .post-info .view-count {
   margin-right: 2.5rem;
   font-size: 2rem;
   font-weight: 400;
@@ -216,7 +229,7 @@ input:focus{
   white-space: nowrap;
   flex-shrink: 0;
 }
-.buyerPage-box .left-box .post-box .postContent-box .title-box .post-info .heart-count {
+.sellerPage-box .left-box .post-box .postContent-box .title-box .post-info .heart-count {
   font-size: 2rem;
   font-weight: 400;
   line-height: 1.2125;
@@ -225,7 +238,7 @@ input:focus{
   white-space: nowrap;
   flex-shrink: 0;
 }
-.buyerPage-box .left-box .post-box .postContent-box .post-content {
+.sellerPage-box .left-box .post-box .postContent-box .post-content {
   max-width: 42.9rem;
   font-size: 2.2rem;
   font-weight: 400;
@@ -234,7 +247,7 @@ input:focus{
   font-family: Inter, 'Source Sans Pro';
   flex-shrink: 0;
 }
-.buyerPage-box .left-box .nextImg-icon {
+.sellerPage-box .left-box .nextImg-icon {
   margin-bottom: 27.5rem;
   width: 2.3047rem;
   height: 3.9113rem;
@@ -242,7 +255,7 @@ input:focus{
   vertical-align: top;
   flex-shrink: 0;
 }
-.buyerPage-box .right-box {
+.sellerPage-box .right-box {
   height: 102.4rem;
   align-items: center;
   display: flex;
@@ -250,15 +263,17 @@ input:focus{
   background-color: #c4d6e4;
   flex-shrink: 0;
 }
-.buyerPage-box .right-box .comment-box {
+.sellerPage-box .right-box .comment-box {
   box-sizing: border-box;
   padding: 2.9rem 2.5rem 53rem 3.2rem;
   width: 100%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  overflow-y: scroll;
 }
-.buyerPage-box .right-box .comment-box .comment-count {
+.sellerPage-box .right-box .comment-box .comment-count {
   margin-bottom: 6.1rem;
   font-size: 2.4rem;
   font-weight: 400;
@@ -268,7 +283,7 @@ input:focus{
   white-space: nowrap;
   flex-shrink: 0;
 }
-.buyerPage-box .right-box .comment-box .item--jUm {
+.sellerPage-box .right-box .comment-box .item--Qws {
   margin: 0rem 0rem 3rem 1rem;
   width: calc(100% - 1rem);
   height: 12.8rem;
@@ -276,38 +291,44 @@ input:focus{
   align-items: flex-start;
   flex-shrink: 0;
 }
-.buyerPage-box .right-box .comment-box .item--jUm .user-box {
+.sellerPage-box .right-box .comment-box .item--Qws .user-box {
   margin-right: 2.4rem;
   width: 8.4rem;
   height: 100%;
   flex-shrink: 0;
 }
-.buyerPage-box .right-box .comment-box .item--jUm .user-box .user-img {
+.sellerPage-box .right-box .comment-box .item--Qws .user-box .user-img {
   margin-bottom: 1.3rem;
   width: 100%;
   height: 8.5rem;
   background-color: #fdfdfd;
+  display: flex;
+  align-items: center;
 }
-.buyerPage-box .right-box .comment-box .item--jUm .user-box .user-name {
-  margin-left: 0.9rem;
-  font-size: 2.4rem;
+.sellerPage-box .right-box .comment-box .item--Qws .user-box .user-img .userimg{
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+}
+.sellerPage-box .right-box .comment-box .item--Qws .user-box .user-name {
+  font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.2125;
   color: #000000;
   font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
 }
-.buyerPage-box .right-box .comment-box .item--jUm .userComment-box {
+.sellerPage-box .right-box .comment-box .item--Qws .userComment-box {
   box-sizing: border-box;
   padding: 2rem 1.5rem 0.8rem 2.1rem;
   width: 42.3rem;
-  align-items: center;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
   flex-shrink: 0;
 }
-.buyerPage-box .right-box .comment-box .item--jUm .userComment-box .userComment {
+.sellerPage-box .right-box .comment-box .item--Qws .userComment-box .userComment {
   margin: 0rem 22rem 4.4rem 0rem;
   font-size: 2.4rem;
   font-weight: 400;
@@ -317,7 +338,7 @@ input:focus{
   white-space: nowrap;
   flex-shrink: 0;
 }
-.buyerPage-box .right-box .comment-box .item--jUm .userComment-box .userComment-time {
+.sellerPage-box .right-box .comment-box .item--Qws .userComment-box .userComment-time {
   margin-left: 21.6rem;
   font-size: 2rem;
   font-weight: 400;
@@ -327,7 +348,7 @@ input:focus{
   white-space: nowrap;
   flex-shrink: 0;
 }
-.buyerPage-box .right-box .send-box {
+.sellerPage-box .right-box .send-box {
   box-sizing: border-box;
   padding: 2.4rem 0rem 2.986rem 2.2rem;
   width: 100%;
@@ -337,8 +358,8 @@ input:focus{
   background-color: #e3ebf1;
   flex-shrink: 0;
 }
-.buyerPage-box .right-box .send-box .send-icon {
-  margin-top: 0.5859rem;
+.sellerPage-box .right-box .send-box .send-icon {
+  margin-top: 0.5858rem;
   margin-left: 10px;
   width: 3.2429rem;
   height: 2.8283rem;
