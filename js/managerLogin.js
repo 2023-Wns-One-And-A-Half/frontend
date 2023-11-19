@@ -34,10 +34,10 @@ function postInfo(id, pw){
     .then(data => {
         if(data.status == "NOT_FOUND" || data.status == "UNAUTHORIZED"){
             alert(data.message);
-        }else{
-        localStorage.setItem("jsessionid", data.jsessionid);
-        alert("로그인 되었습니다.");
-        window.open('./main.html', '_self');
+        } else{
+            localStorage.setItem("jsessionid", data.jsessionid);
+            alert("로그인 되었습니다.");
+            window.open('./mainManager.html', '_self');
         }
         
     })
