@@ -43,6 +43,7 @@ logoutButton.addEventListener("click", function(){
     alert("로그아웃 되었습니다.");
     localStorage.removeItem("jsessionid");
     localStorage.removeItem("user");
+    localStorage.removeItem("userId");
     window.open('./main.html', '_self');
 })
 
@@ -338,7 +339,7 @@ async function isSeller(productId){
     })
     .then(response => response.json())
     .then(data => {
-        let check = localStorage.getItem("user") == data.sellerInfo.nickname;
+        let check = localStorage.getItem("userId") == data.sellerInfo.id;
         return check;
     })
     .catch(error => {

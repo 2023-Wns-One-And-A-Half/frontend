@@ -44,9 +44,9 @@ function postInfo(id, pw){
         if(data.status == "NOT_FOUND" || data.status == "UNAUTHORIZED" || data.status == "BAD_REQUEST"){
             alert(data.message);
         }else{
-            console.log(data);
+            //console.log(data);
             localStorage.setItem("jsessionid", data.jsessionid);
-            localStorage.setItem("user", id);
+            getInfo(data.jsessionid);
             let black = await checkBlack(data.jsessionid);
             if(black == false){
                 alert("로그인 되었습니다.");
@@ -81,3 +81,23 @@ async function checkBlack(cookie){
 
     return black;
 }
+
+/* localstorage에 로그인 유저 정보 저장 */
+function getInfo(cookie){
+    fetch(url+"/members/my", {
+      method: 'GET',
+      credentials : 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        'JSESSIONID' : cookie,
+      },
+    }).then(response => response.json())
+      .then(data => {
+        //console.log(data);
+        localStorage.setItem("userId", data.id);
+        localStorage.setItem("user", data.nickname);
+      })
+      .catch(error => {
+          console.error('Error:', error);
+      })
+};
