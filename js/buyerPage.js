@@ -54,46 +54,43 @@ function updateSellerImage() {
   
     let imgElement = document.createElement("img");
     imgElement.classList.add("sellerimg")
-    imgElement.src = imgURL + sellerImage; // 이미지 경로를 조합합니다.
+    imgElement.src = imgURL + sellerImage;
     imgElement.alt = "Seller Image";
     sellerImgContainer.appendChild(imgElement);
 }
 
 let currentImageIndex = 0; // 좌우 화살표 클릭 시 이미지 인덱스
-  
+
 function updatePostImages() {
     postImgContainer.innerHTML = "";
-  
-    productImages.forEach((imagePath, index) => {
-      let imgElement = document.createElement("img");
-      imgElement.classList.add("productimg");
-      imgElement.src = imgURL + imagePath;
-      imgElement.alt = `Product Image ${index + 1}`;
-      postImgContainer.appendChild(imgElement);
-    });
-  
-    currentImageIndex = 0; // 현재 이미지 인덱스를 초기화합니다.
+
+    let imgElement = document.createElement("img");
+    imgElement.classList.add("productimg");
+    imgElement.src = imgURL + productImages[currentImageIndex];
+    imgElement.alt = `Product Image ${currentImageIndex + 1}`;
+    postImgContainer.appendChild(imgElement);
+}
+
+function changeImage(isNext) {
+    if (isNext) {
+        currentImageIndex = (currentImageIndex + 1) % productImages.length;
+    } else {
+        currentImageIndex = (currentImageIndex - 1 + productImages.length) % productImages.length;
+    }
+
+    updatePostImages();
 }
 
 document.querySelector(".prevImg-icon").addEventListener("click", function () {
-    if (currentImageIndex > 0) {
-      currentImageIndex--;
-    } else {
-      currentImageIndex = images.length - 1;
-    }
-  
-    updatePostImages();
+    changeImage(false);
 });
-  
+
 document.querySelector(".nextImg-icon").addEventListener("click", function () {
-    if (currentImageIndex < images.length - 1) {
-      currentImageIndex++;
-    } else {
-      currentImageIndex = 0;
-    }
-  
-    updatePostImages();
+    changeImage(true);
 });
+
+// 페이지 로드 시 첫 번째 이미지 표시
+updatePostImages();
 
 //페이지 새로고침/새 창 띄울 때마다 로드
 getInfo(productId);
@@ -190,7 +187,7 @@ function padZero(num) {
 }
 function createCommentElement(commentData) {
     let itemElement = document.createElement("div");
-    itemElement.classList.add("item--Qws");
+    itemElement.classList.add("item--jUm");
   
     let userBoxElement = document.createElement("div");
     userBoxElement.classList.add("user-box");

@@ -56,10 +56,14 @@ input:focus{
   height: 56.7rem;
   background-color: #bfbfbf;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
-.sellerPage-box .left-box .post-box .post-img .productimg{
-  max-width: 100%;
-  max-height: 100%;
+.sellerPage-box .left-box .post-box .post-img .productimg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .sellerPage-box .left-box .post-box .postContent-box {
@@ -92,12 +96,13 @@ input:focus{
   display: flex;
   align-items: center;
 }
-.sellerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .seller-img .sellerimg{
-  max-width: 100%;
-  max-height: 100%;
+.sellerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .seller-img .sellerimg {
+  max-width: 100%; /* 이미지의 최대 너비를 100%로 설정 */
+  max-height: 100%; /* 이미지의 최대 높이를 100%로 설정 */
   display: flex;
   align-items: center;
 }
+
 .sellerPage-box .left-box .post-box .postContent-box .seller-info .seller-profile .info-box {
   margin: 0.2rem 0rem 0.5rem 0rem;
   height: calc(100% - 0.7rem);
