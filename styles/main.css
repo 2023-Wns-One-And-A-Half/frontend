@@ -130,6 +130,9 @@ input {
   flex-shrink: 0;
 }
 .profile-box .keyword-box .keyword-list .keyword {
+  font-size: 12px;
+  text-align: center;
+  line-height: 3.1rem;
   margin-right: 1.3rem;
   width: 8.6rem;
   height: 3.1rem;

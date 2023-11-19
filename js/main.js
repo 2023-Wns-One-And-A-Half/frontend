@@ -12,6 +12,7 @@ let cookie = localStorage.getItem("jsessionid");
 let uploadButton = document.getElementsByClassName("goto-upload")[0];
 let addKeywordButton = document.getElementsByClassName("keyword-addButton")[0];
 let addKeywordBack = document.getElementsByClassName("addButton-background")[0];
+let keywordList = document.getElementsByClassName("keyword-list")[0];
 
 let username = document.getElementsByClassName("nickname")[0];
 let userarea = document.getElementsByClassName("userarea")[0];
@@ -92,14 +93,15 @@ function getInfo(){
             default:
                 activityArea = "미정";
         }
+        /*
         console.log(data.id);
         console.log(data.nickname);
         console.log(profileURL);
         console.log(data.activityArea);
         console.log(data.black);
-
+        */
         if(cookie!=null){
-            viewInfo(data.nickname, activityArea, profileURL)
+            viewInfo(data.nickname, activityArea, profileURL);
         }
     })
     .catch(error => {
@@ -120,32 +122,40 @@ function viewInfo(nickname, activityArea, profileURL){
         username.innerHTML = nickname;
         userarea.innerHTML = "활동지역 : "+activityArea;
         userimg.innerHTML = "<img id=\"profile-img\" src=\""+profileURL+"\"/>";
-        addKeywordBack.style.display = 'block';
+        addKeywordBack.style.display = 'flex';
+        getKeyword(cookie);
     }
 }
 
 
 /* 키워드 추가 */
 addKeywordButton.addEventListener("click", function(){
-    let keyword = prompt("추가할 키워드를 입력해주세요");
-    if(keyword == null){
-        alert("키워드 추가가 취소되었습니다.");
-    }else{
-        while(keyword.startsWith(" ")){
-            keyword = keyword.substring(1);
-        }
-
-        while(keyword.endsWith(" ")){
-            keyword = keyword.substring(0, keyword.length-1);
-        }
-        
-        if(keyword == ""){
-            alert("키워드가 입력되지 않았습니다.");
+    if(keywordList.childElementCount<9){
+        let keyword = prompt("추가할 키워드를 입력해주세요");
+        if(keyword == null){
+            alert("키워드 추가가 취소되었습니다.");
         }else{
-            keyword = keyword.replace(/(^ *)|( *$)/g, "").replace(/ +/g, "_");
-            console.log(keyword);
-            postKeyword(keyword);
+            while(keyword.startsWith(" ")){
+                keyword = keyword.substring(1);
+            }
+    
+            while(keyword.endsWith(" ")){
+                keyword = keyword.substring(0, keyword.length-1);
+            }
+            
+            if(keyword == ""){
+                alert("키워드가 입력되지 않았습니다.");
+            }else{
+                keyword = keyword.replace(/(^ *)|( *$)/g, "").replace(/ +/g, "_");
+                if(keyword.length>8){
+                    alert("키워드는 공백포함 8자 이내로 작성 가능합니다.");
+                }else{
+                    postKeyword(keyword);
+                }
+            }
         }
+    }else{
+        alert("키워드는 최대 9개까지 작성 가능합니다.");
     }
 })
  
@@ -164,12 +174,12 @@ function postKeyword(keyword){
         'JSESSIONID' : cookie,
     },
     body: JSON.stringify(data),
-    }).then(response => response.json())
+    })
     .then(data => {
-        if(data.status == "CONFLICT"){
-            alert(data.message);
+        if(data.status == 409){
+            alert("중복된 키워드가 존재합니다.");
         }else{
-            console.log(data);
+            window.open('./main.html', '_self');
         }
     })
     .catch(error => {
@@ -178,30 +188,24 @@ function postKeyword(keyword){
 }
 
 
-/* JSON 그 외
-function postInfo(id, pw){
-    const data = {
-        "username":id,
-        "password":pw,
-    }
-
-    fetch(url+"/members/login", {
-    method: 'POST',
-    credentials : 'include',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-    })
-    .then(data => {
-        if(data.status == "NOT_FOUND"){
-            alert(data.message);
-        }else{
-            console.log(data);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+/* 내 키워드 조회하고 html에 적용하기 */
+function getKeyword(cookie){
+    fetch(url+"/keywords/my", {
+        method: 'GET',
+        credentials : 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'JSESSIONID' : cookie,
+        },
+      }).then(response => response.json())
+        .then(data => {
+            let html = "";
+            for(let i=0; i<data.length; i++){
+                html += "<div class=\"keyword\" id=\"keyword"+data[i].id+"\">"+data[i].content+"</div>\n";
+            }
+            keywordList.innerHTML = html;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 }
-*/
