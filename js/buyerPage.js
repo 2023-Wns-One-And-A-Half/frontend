@@ -49,9 +49,10 @@ getInfo(productId);
 let buyButton = document.getElementsByClassName("buyButton")[0];
 buyButton.addEventListener("click", function(){
     let user = localStorage.getItem("user");
+    let id = localStorage.getItem("id");
     if(user == null){
         alert("로그인 후 가능합니다.");
-    }else if(user == "admin"){
+    }else if(user == "admin" && id == null){
         alert("관리자는 구매신청 할 수 없습니다.");
     }else{
         viewPopup();
