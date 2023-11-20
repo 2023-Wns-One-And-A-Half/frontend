@@ -266,8 +266,12 @@ let buyButton = document.getElementById("buyBtn");
 let cancleButton = document.getElementsByClassName("cancleButton")[0];
 
 buyButton.addEventListener("click", function(){
-    popup.style.display = 'block';
-    updatePopupInfo();
+    if(cookie!=null){
+        popup.style.display = 'block';
+        updatePopupInfo();
+    }else{
+        alert("로그인 후 구매신청이 가능합니다.")
+    }
 })
 cancleButton.addEventListener("click", function(){
     popup.style.display = 'none';
