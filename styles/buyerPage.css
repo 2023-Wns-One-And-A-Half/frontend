@@ -371,3 +371,89 @@ input:focus{
   vertical-align: top;
   flex-shrink: 0;
 }
+
+.popup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: 500px;
+  margin-left: -20%;
+  height: 300px;
+  margin-top: -280px;
+  z-index: 1000;
+  border: solid 2px #a7c7df;
+  background-color: #ffffff;
+  border-radius: 5px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.popuptitle{
+  margin: 10px;
+  padding-right: 5px;
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 2.5;
+  font-family: Inter, 'Source Sans Pro';
+}
+
+.popupPrice{
+  margin: 10px;
+  padding-right: calc(100% - 45rem);
+  font-size: 2rem;
+  font-weight: 200;
+  line-height: 2.5;
+  font-family: Inter, 'Source Sans Pro';
+}
+
+.line{
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  height: 0.1rem;
+  background-color: #89c593;
+}
+.buyerList{
+  height: 80%;
+}
+.text{
+  margin-top: 10%;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+.okButton{
+  margin-right: 10px;
+  margin-left: 10px;
+  display: inline-block;
+  background-color: #a7c7df;
+  border-radius: 5px;
+  height: 30px;
+  width: 80px;
+  vertical-align: bottom;
+  font-size: 2rem;
+  font-weight: 400;
+  font-family: Inter, 'Source Sans Pro';
+}
+
+.cancleButton{
+  margin-right: 10px;
+  margin-left: 10px;
+  display: inline-block;
+  background-color: #a7c7df;
+  border-radius: 5px;
+  height: 30px;
+  width: 80px;
+  vertical-align: bottom;
+  font-size: 2rem;
+  font-weight: 400;
+  font-family: Inter, 'Source Sans Pro';
+}
+
+.okButton:hover{
+  background-color: #6199b3;
+}
+
+.cancleButton:hover{
+  background-color: #6199b3;
+}

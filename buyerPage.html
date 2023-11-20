@@ -26,10 +26,11 @@
                   <p class="seller-name"></p>
                 </div>
               </div>
-              <div class="act-box"><img class="heart-icon" id="noHeart" src="./assets/favorite+border+24px-131985191755500426.png">
+              <div class="act-box">
+                <img class="heart-icon" id="noHeart" src="./assets/favorite+border+24px-131985191755500426.png">
                 <img class="heart-icon" id="yesHeart" src="./assets/favorite+24px-131985191712118625.png">
                 <div class="chatButton">1:1 채팅</div>
-                <div class="buyButton">구매신청</div>
+                <div class="buyButton" id="buyBtn">구매신청</div>
               </div>
             </div>
             <div class="title-box">
@@ -65,6 +66,17 @@
           <img class="send-icon" src="./assets/icon-content-send24px-nuP.png"/>
         </div>
       </div>
+      <div class="popup">
+        <span class="popuptitle">청소기 팔아요</span>
+        <span class="popupPrice">400</span>
+        <div class="line"></div>
+        <div class="buyerList">
+          <div class="text">구매 신청 하시겠습니까?</div>
+          <div>
+            <button class="okButton" id="okBtn">신청</button>
+            <button class="cancleButton">취소</button>
+          </div>
+        </div>
     </div>
   </body>
   <script src="./js/buyerPage.js"></script>

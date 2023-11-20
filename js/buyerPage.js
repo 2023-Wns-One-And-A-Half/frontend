@@ -64,11 +64,13 @@ let currentImageIndex = 0; // 좌우 화살표 클릭 시 이미지 인덱스
 function updatePostImages() {
     postImgContainer.innerHTML = "";
 
-    let imgElement = document.createElement("img");
-    imgElement.classList.add("productimg");
-    imgElement.src = imgURL + productImages[currentImageIndex];
-    imgElement.alt = `Product Image ${currentImageIndex + 1}`;
-    postImgContainer.appendChild(imgElement);
+    if (productImages && productImages.length > 0) {
+        let imgElement = document.createElement("img");
+        imgElement.classList.add("productimg");
+        imgElement.src = imgURL + productImages[currentImageIndex];
+        imgElement.alt = `Product Image ${currentImageIndex + 1}`;
+        postImgContainer.appendChild(imgElement);
+    }
 }
 
 function changeImage(isNext) {
@@ -233,3 +235,111 @@ function createCommentElement(commentData) {
 
 /* 페이지 새로고침/새 창 띄울 때마다 로드 */
 getComment();
+
+
+/* 팝업에 상품 정보 보이게하기*/
+function updatePopupInfo() {
+    fetch(url + "/products/" + productId, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+            'JSESSIONID': cookie,
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        let popupTitle = document.querySelector(".popuptitle");
+        let popupPrice = document.querySelector(".popupPrice");
+
+        popupTitle.textContent = data.name;
+        popupPrice.textContent = data.price + " 원";
+    })
+    .catch(error => {
+        console.error('Error updating popup info:', error);
+    });
+}
+/* "구매신청" 버튼에 이벤트 리스너 추가 */
+/* 구매 신청 목록 팝업 */
+let popup = document.getElementsByClassName("popup")[0];
+let buyButton = document.getElementById("buyBtn");
+let cancleButton = document.getElementsByClassName("cancleButton")[0];
+
+buyButton.addEventListener("click", function(){
+    popup.style.display = 'block';
+    updatePopupInfo();
+})
+cancleButton.addEventListener("click", function(){
+    popup.style.display = 'none';
+})
+
+document.getElementById("okBtn").addEventListener("click", function () {
+    // 상품에 대한 거래 제안 여부 확인
+    checkAndSendTradeSuggestion(productId);
+    popup.style.display = 'none';
+});
+
+function checkAndSendTradeSuggestion(productId) {
+    // 거래 제안 여부 확인
+    fetch(url + "/trade-suggests/exist?productId=" + productId, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+            'JSESSIONID': cookie,
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.suggested) {
+            // 거래 제안을 이미 한 경우
+            let suggestedDate = new Date(data.suggestedDate);
+            alert(`이 상품에 대해 이미 구매 제안을 했습니다.\n제안 일시: ${suggestedDate}`);
+        } else {
+            // 거래 제안을 하지 않은 경우
+            sendTradeSuggestion(productId); // 거래 제안을 하고 구매확정 처리를 수행
+        }
+    })
+    .catch(error => {
+        console.error('Error checking trade suggestion:', error);
+        // 여기에 에러 처리 코드를 추가할 수 있습니다.
+    });
+}
+
+function sendTradeSuggestion(productId) {
+    // 거래 제안을 서버에 전송
+    const data = {
+        "productId": productId
+    };
+
+    fetch(url + "/trade-suggests", {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+            'JSESSIONID': cookie,
+        },
+        body: JSON.stringify(data),
+    })
+    .then(data => {
+        if (data.status === "BAD_REQUEST") {
+            // 거래완료 상품이거나 기타 오류 처리
+            alert("이미 거래완료된 상품입니다.");
+        } else if (data.status === "FORBIDDEN") {
+            // 판매 권한이 없는 경우 처리
+            alert("상품을 판매할 권한이 없습니다.");
+        } else {
+            // 거래 제안 성공 및 구매확정 처리
+            alert("구매신청이 성공적으로 완료되었습니다.");
+        }
+    })
+    .catch(error => {
+        console.error('Error sending trade suggestion:', error);
+    });
+}
+
+
+/* 1:1채팅 이동 */
+document.querySelector(".chatButton").addEventListener("click", function () {
+    window.location.href = "chat.html";
+});

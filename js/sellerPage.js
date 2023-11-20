@@ -64,11 +64,13 @@ let currentImageIndex = 0; // 좌우 화살표 클릭 시 이미지 인덱스
 function updatePostImages() {
     postImgContainer.innerHTML = "";
 
-    let imgElement = document.createElement("img");
-    imgElement.classList.add("productimg");
-    imgElement.src = imgURL + productImages[currentImageIndex];
-    imgElement.alt = `Product Image ${currentImageIndex + 1}`;
-    postImgContainer.appendChild(imgElement);
+    if (productImages && productImages.length > 0) {
+        let imgElement = document.createElement("img");
+        imgElement.classList.add("productimg");
+        imgElement.src = imgURL + productImages[currentImageIndex];
+        imgElement.alt = `Product Image ${currentImageIndex + 1}`;
+        postImgContainer.appendChild(imgElement);
+    }
 }
 
 function changeImage(isNext) {
