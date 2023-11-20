@@ -203,7 +203,7 @@ input:focus{
   flex-shrink: 0;
 }
 .sellerPage-box .left-box .post-box .postContent-box .post-content {
-  max-width: 100%;
+  max-width: 450px;
   font-size: 2.2rem;
   font-weight: 400;
   line-height: 1.2125;
@@ -341,7 +341,7 @@ input:focus{
   width: 40%;
   min-width: 330px;
   margin-left: -20%;
-  height: 350px;
+  height: 480px;
   margin-top: -280px;
   z-index: 1000;
   border: solid 2px #a7c7df;
@@ -384,7 +384,7 @@ input:focus{
 }
 
 .buyerList{
-  height: 300px;
+  height: 430px;
   overflow: scroll;
 }
 

@@ -184,6 +184,100 @@ function getComment() {
         });
 }
 
+
+/* 내 관심상품 조회, 이 상품이 관심상품인지 비교 */
+let noHeart = document.getElementById("noHeart");
+let yesHeart = document.getElementById("yesHeart");
+function isHeart(){
+    fetch(url+"/interest-products/my", {
+        method: 'GET',
+        credentials : 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'JSESSIONID' : cookie,
+        },
+    }).then(response => response.json())
+    .then(data => {
+        if(data.length == 0){
+            noHeart.style.display = 'block';
+        }else{
+            for(let i=0; i<data.length; i++){
+                if(productId == data[i].id){
+                    yesHeart.style.display = 'block';
+                }else{
+                    noHeart.style.display = 'block';
+                }
+            }
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+/* 페이지 새로고침/새 창 띄울 때마다 로드 */
+//로그인 하지 않았거나 관리자인 경우 하트 아이콘 숨김
+if(localStorage.getItem("user")!=null){
+    isHeart();
+}
+
+
+/* 관심상품 등록 */
+noHeart.addEventListener("click", function(){
+    addHeart(productId);
+})
+function addHeart(productId){
+    const data = {
+        "productId": productId,
+    }
+    fetch(url+"/interest-products", {
+        method: 'POST',
+        credentials : 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'JSESSIONID' : cookie,
+        },
+        body: JSON.stringify(data),
+    })
+    .then(data => {
+        console.log(data);
+        noHeart.style.display = 'none';
+        yesHeart.style.display = 'block';
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+
+/* 관심상품 삭제 */
+yesHeart.addEventListener("click", function(){
+    deleteHeart(productId);
+})
+function deleteHeart(productId){
+    const data = {
+        "productId": productId,
+    }
+    fetch(url+"/interest-products", {
+        method: 'DELETE',
+        credentials : 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'JSESSIONID' : cookie,
+        },
+        body: JSON.stringify(data),
+    })
+    .then(data => {
+        console.log(data);
+        noHeart.style.display = 'block';
+        yesHeart.style.display = 'none';
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+
 function padZero(num) {
     return num < 10 ? `0${num}` : num;
 }
@@ -266,11 +360,15 @@ let buyButton = document.getElementById("buyBtn");
 let cancleButton = document.getElementsByClassName("cancleButton")[0];
 
 buyButton.addEventListener("click", function(){
-    if(cookie!=null){
+    let user = localStorage.getItem("user");
+    let id = localStorage.getItem("id");
+    if(user == null){
+        alert("로그인 후 가능합니다.");
+    }else if(user == "admin" && id == null){
+        alert("관리자는 구매신청 할 수 없습니다.");
+    }else{
         popup.style.display = 'block';
         updatePopupInfo();
-    }else{
-        alert("로그인 후 구매신청이 가능합니다.")
     }
 })
 cancleButton.addEventListener("click", function(){

@@ -241,8 +241,88 @@ let popup = document.getElementsByClassName("popup")[0];
 let sellButton = document.getElementsByClassName("sellButton")[0];
 let closeButton = document.getElementsByClassName("closeButton")[0];
 sellButton.addEventListener("click", function(){
+    viewList(productId);
     popup.style.display = 'block';
 })
 closeButton.addEventListener("click", function(){
     popup.style.display = 'none';
 })
+
+/* 서버에서 구매 신청자 목록 가져오기 */
+function viewList(productId){
+    fetch(url + "/trade-suggests?productId="+productId, {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+            'JSESSIONID': cookie,
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        let html = "";
+        let buyerList = document.getElementsByClassName("buyerList")[0];
+        data.forEach(buyer => {
+            html += makeBuyer(buyer.suggesterInfo.nickName, buyer.suggestDate, buyer.id, buyer.suggesterInfo.suggesterId,);
+        });
+        buyerList.innerHTML = html;
+        let popupchatButton = document.querySelectorAll(".popupchatButton");
+        let popupsellButton = document.querySelectorAll(".popupsellButton");
+        popupchatButton.forEach(button => {
+            button.addEventListener("click", function(){
+                //1:1채팅 버튼이 눌렸을 경우
+                console.log(this.id+"와 1:1채팅 열기");
+            })
+        })
+        popupsellButton.forEach(button => {
+            button.addEventListener("click", function(){
+                //판매 버튼이 눌렸을 경우
+                sell(this.id.charAt(this.id.length-1));
+            })
+        })
+    })
+    .catch(error => {
+        console.error('Error fetching check Seller:', error);
+    });
+}
+
+/* 구매 신청자 html에 표시 */
+function makeBuyer(buyerName, buyTime, tradeId, clientId){
+    let html = "";
+    let date = new Date(buyTime);
+    let formattedDate = `${date.getFullYear()}-${padZero(date.getMonth() + 1)}-${padZero(date.getDate())} ${padZero(date.getHours())}:${padZero(date.getMinutes())}`;
+    html += "\n<div class=\"buyer\">\n\t";
+    html += "<span class=\"buyerName\">"+buyerName+"</span>\n"; 
+    html += "<span class=\"buyTime\">"+formattedDate+"</span>\n";
+    html += "<span class=\"popupchatButton\" id=\"clientId"+clientId+"\">1:1 채팅</span>\n" ;
+    html += "<span class=\"popupsellButton\" id=\"tradeId"+tradeId+"\">판매</span>\n";
+    html += "</div>";
+    return html;
+}
+
+
+/* 해당 고객에게 판매 확정 */
+function sell(tradeId){
+    const data = {
+        "tradeSuggestionId" : tradeId,
+    }
+    fetch(url + "/trades", {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+            'JSESSIONID': cookie,
+        },
+        body: JSON.stringify(data),
+    })
+    .then(data => {
+        if(data.status == 400){
+            alert("이미 거래 완료된 상품입니다.");
+        }else if(data.status == 403){
+            alert("상품을 판매할 권한이 없습니다.");
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
