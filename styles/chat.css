@@ -45,14 +45,44 @@ input:focus {
   left: 0;
   top: 0;
   overflow: hidden;
+  display: flex;
+  flex-direction: row;
 }
 
 .chat-box .back-box .back-icon {
-  margin: 0rem 0rem 3.314rem 3.796rem;
+  margin: 0.5rem 2rem 3.314rem 3.796rem;
   width: 1.7705rem;
   height: 3.4888rem;
   object-fit: contain;
   vertical-align: top;
+}
+
+.chat-box .back-box .title-price-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 1rem;
+}
+
+.chat-box .back-box .title-price-container .chat-title {
+  overflow: hidden;
+  text-overflow: ellipsis; /* 긴 텍스트일 경우 말줄임 표시 (...) */
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+
+.chat-box .back-box .title-price-container .product-price {
+  margin-top: 2rem;
+  margin-left: 1rem;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.2125;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
 }
 
 .chat-box .send-box {
@@ -122,19 +152,6 @@ input:focus {
   padding: 1rem;
 }
 
-.chat-box .chat-title {
-  width: 19rem;
-  height: 4.9rem;
-  position: absolute;
-  left: 10rem;
-  top: 3rem;
-  font-size: 4rem;
-  font-weight: 700;
-  line-height: 1.2125;
-  color: #000000;
-  font-family: Inter, 'Source Sans Pro';
-  white-space: nowrap;
-}
 
 .chat-box .line {
   width: 100%;
