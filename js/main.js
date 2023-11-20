@@ -32,7 +32,11 @@ if(cookie == null){
 
 /* 페이지 이동 */
 mypageButton.addEventListener("click", function(){
-    window.open('./userPage.html', '_self');
+    if(cookie!=null){
+        window.open('./userPage.html', '_self');
+    }else{
+        alert("로그인 후 확인할 수 있습니다.");
+    }
 })
 
 loginButton.addEventListener("click", function(){
@@ -52,7 +56,11 @@ signupButton.addEventListener("click", function(){
 })
 
 uploadButton.addEventListener("click", function(){
-    window.open('./upload.html', '_self');
+    if(cookie!=null){
+        window.open('./upload.html', '_self');
+    }else{
+        alert("로그인 후 등록할 수 있습니다.");
+    }
 })
 
 
