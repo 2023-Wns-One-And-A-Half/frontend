@@ -40,15 +40,14 @@ let uploadButton = document.getElementById("upload-button");
 uploadButton.addEventListener("click", function () {
     let name = document.getElementById("product-name").value;
     let price = document.getElementById("product-price").value;
-    let area = document.getElementById("area").value;
     let description = document.getElementById("product-description").value;
     let imageInput = document.getElementById("product-images");
     
     let productImages = imageInput.files;
-    console.log(name, price, area, description, productImages);
+    console.log(name, price, description, productImages);
 
     if (check(name, price)) {
-        postInfo(name, price, area, description, productImages);
+        postInfo(name, price, description, productImages);
     }
 });
 
@@ -62,10 +61,9 @@ function check(name, price){
     }
 }
 
-function postInfo(name, price, area, description, productImages) {
+function postInfo(name, price,  description, productImages) {
     let formData = new FormData();
     formData.append("name", name);
-    // formData.append("area", area);
     formData.append("description", description);
     formData.append("price", price);
 
