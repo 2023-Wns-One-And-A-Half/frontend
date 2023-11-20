@@ -47,19 +47,21 @@ input {
   flex-shrink: 0;
 }
 .profile-box .profile-inner .profile-img {
-  display: table-cell;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
   text-align: center;
   margin-right: 2.9rem;
-  width: 12.6rem;
-  height: 12.2rem;
+  width: 120px;
+  height: 120px;
   background-color: rgb(213, 213, 213);
   flex-shrink: 0;
 }
 #profile-img{
-  margin-top: 20%;
+  display: flex;
+  margin: auto;
   max-width: 120px;
-  max-height: 180px;
+  max-height: 120px;
+  object-fit: contain;
 }
 .profile-box .profile-inner .profile-info {
   margin: 2rem 0rem 1.9rem 0rem;

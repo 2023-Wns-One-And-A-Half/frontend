@@ -2,12 +2,6 @@ let url = 'http://3.39.230.180:8080';
 
 let cookie = localStorage.getItem("jsessionid");
 
-/* 로그인 안되어있을 때는 마이페이지 안들어가지게 */
-if(cookie == null){
-    alert("로그인을 해주세요.");
-    window.open('./main.html', '_self');
-}
-
 /* 뒤로가기 화살표 동작 */
 let mainButton = document.getElementsByClassName("back-icon")[0];
 mainButton.addEventListener("click", function(){

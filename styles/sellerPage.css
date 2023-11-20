@@ -220,6 +220,7 @@ input:focus{
   flex-shrink: 0;
 }
 .sellerPage-box .right-box {
+  width: 450px;
   height: 102.4rem;
   align-items: center;
   display: flex;

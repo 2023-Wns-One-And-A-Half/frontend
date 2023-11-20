@@ -19,6 +19,7 @@ function getUser(){
         },
     }).then(response => response.json())
     .then(data => {
+        console.log(data);
         viewUser(data);
     })
     .catch(error => {
@@ -62,6 +63,7 @@ function getBlackUser(){
         },
     }).then(response => response.json())
     .then(data => {
+        console.log(data);
         viewBlackUser(data);
     })
     .catch(error => {
